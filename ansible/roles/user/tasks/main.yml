@@ -25,3 +25,7 @@
 - name: Fix owner
   command: chown dev.dev -R /home/dev
 
+- name: Sudo rights
+  lineinfile: 
+    'dest=/etc/sudoers create=yes state=present regexp="docker$"
+    line="%sudo ALL=(ALL) NOPASSWD: ALL"'
