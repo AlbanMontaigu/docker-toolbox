@@ -15,9 +15,7 @@
     - sudo
     - ca-certificates
     - build-essential
-    - nodejs
     - python
-    - npm
     - dnsutils
     - locales
     - locales-all

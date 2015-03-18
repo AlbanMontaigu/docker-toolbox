@@ -1,7 +1,7 @@
 docker-devbox
 =============
 
-My dev box Docker image based on debian.
+My dev box Docker image based on debian and ncarlier/docker-devbox work.
 
 Contains:
 
@@ -12,5 +12,4 @@ Contains:
 * curl
 * wget
 * docker
-* fleetctl
-* go
+* docker-compose

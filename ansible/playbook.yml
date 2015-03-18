@@ -5,7 +5,5 @@
     - common
     - docker
     - docker-compose
-    - fleet
-    - go
     - user
 
