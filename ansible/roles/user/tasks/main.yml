@@ -6,13 +6,9 @@
     uid=1000
     home=/home/dev
     group=dev
-    groups=dev,users
+    groups=dev,users,sudo
     shell=/bin/zsh
 
 - name: Fix owner
   command: chown dev.dev -R /home/dev
-
-- name: Sudo rights for all
-  lineinfile: 
-    'dest=/etc/sudoers create=yes state=present regexp="sudo ALL"
-    line="%sudo ALL=(ALL) NOPASSWD: ALL"'
+  
