@@ -10,7 +10,7 @@ env DEBIAN_FRONTEND noninteractive
 
 # Install Ansible
 run apt-get update && \
-    apt-get install -y ansible && \
+    apt-get install -y openssh-client ansible && \
     apt-get clean
 
 # Add playbooks to the Docker image
