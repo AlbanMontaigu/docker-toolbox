@@ -4,24 +4,21 @@
 
 from debian:jessie
 
-maintainer Nicolas Carlier <https://github.com/ncarlier>
+maintainer Alban Montaigu <https://github.com/AlbanMontaigu>
 
 env DEBIAN_FRONTEND noninteractive
 
 # Install Ansible
 run apt-get update && \
-    apt-get install -y openssh-client ansible && \
+    apt-get install -y ansible && \
     apt-get clean
 
 # Add playbooks to the Docker image
-copy ansible /workspace
-workdir /workspace
+copy ansible /tmp/ansible
+workdir /tmp/ansible
 
 # Run Ansible to configure the Docker image
 run ansible-playbook playbook.yml -i hosts
-
-# Setup shared volume
-volume /var/shared
 
 # Setup working directory
 workdir /home/dev
@@ -36,4 +33,4 @@ env LANG fr_FR.UTF-8
 env LANGUAGE fr_FR:fr
 env LC_ALL fr_FR.UTF-8
 
-entrypoint ["/usr/bin/ssh-agent", "/bin/zsh"]
+entrypoint ["/bin/zsh"]
