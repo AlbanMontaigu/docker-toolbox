@@ -1,6 +1,6 @@
 # My devbox Docker image.
 #
-# VERSION 0.0.1
+# VERSION 1.8.3
 
 from debian:jessie
 
