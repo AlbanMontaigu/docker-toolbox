@@ -13,3 +13,7 @@ Contains:
 * wget
 * docker
 * docker-compose
+* telnet
+* nc
+
+And more...
