@@ -14,6 +14,5 @@ Contains:
 * docker
 * docker-compose
 * telnet
-* nc
 
 And more...

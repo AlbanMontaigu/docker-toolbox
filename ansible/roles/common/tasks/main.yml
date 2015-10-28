@@ -22,7 +22,6 @@
     - unzip
     - zip
     - telnet
-    - nc
 
 - name: Ensure fr_FR locale exists
   locale_gen: name=fr_FR.UTF-8 state=present
