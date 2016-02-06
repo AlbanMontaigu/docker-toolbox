@@ -12,7 +12,7 @@
 
 # Allows to exec a command inside the container
 dk_devbox_cmd() {
-    if [ $# eq 1 ]; then
+    if [ $# -eq 1 ]; then
         docker run --rm -it \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v "$(pwd)":/workspace \
