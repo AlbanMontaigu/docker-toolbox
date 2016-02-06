@@ -22,7 +22,7 @@ maintainer Alban Montaigu <https://github.com/AlbanMontaigu>
 
 # Environment configuration
 ENV DOCKER_VERSION="1.10.0" \
-    DOCKER_URL=" https://get.docker.com/builds/Linux/x86_64/docker" \
+    DOCKER_URL="https://get.docker.com/builds/Linux/x86_64/docker" \
     DOCKER_COMPOSE_VERSION="1.6.0" \
     DOCKER_COMPOSE_URL="https://github.com/docker/compose/releases/download"
 
