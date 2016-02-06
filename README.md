@@ -19,6 +19,7 @@ $ docker run -v "$(pwd)":/workspace \
 - wget
 - docker
 - docker-compose
+- telnet
 
 And more...
 
