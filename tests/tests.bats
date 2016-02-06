@@ -13,7 +13,7 @@
 load tests_helper
 
 # Test docker compose version
-@test "With no cmd/args, docker-compose version should be ${DOCKER_COMPOSE_VERSION}" {
+@test "Docker-compose version should be ${DOCKER_COMPOSE_VERSION}" {
     result=$(dk_devbox_cmd "docker-compose --version")
     [[ "$result" == *"docker-compose version ${DOCKER_COMPOSE_VERSION}"* ]]
     echo "-$result-"
