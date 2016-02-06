@@ -24,5 +24,6 @@ load tests_helper
     [[ "$result" == *"docker-compose version ${DOCKER_COMPOSE_VERSION}"* ]]
 }
 
-
-
+@test "Image build with docker-compose" {
+    dk_devbox_cmd "dc build"
+}

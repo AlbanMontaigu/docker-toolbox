@@ -16,6 +16,7 @@ dk_devbox_cmd() {
         docker run --rm \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v "$(pwd)":/workspace \
+            -w="/workspace" \
             ${DOCKER_IMAGE_NAME} -c "$1"
     else
         echo "Usage: dk_devbox_cmd COMMAND"
