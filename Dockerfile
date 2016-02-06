@@ -22,20 +22,18 @@ maintainer Alban Montaigu <https://github.com/AlbanMontaigu>
 
 # Environment configuration
 ENV DOCKER_VERSION="1.10.0" \
-    DOCKER_URL="https://get.docker.com/builds/Linux/x86_64/docker" \
-    DOCKER_COMPOSE_VERSION="1.6.0" \
-    DOCKER_COMPOSE_URL="https://github.com/docker/compose/releases/download"
+    DOCKER_COMPOSE_VERSION="1.6.0"
 
 
 # System preparation and setup
 RUN apk add --update zsh curl \
 
 # Install docker bin for client commands (will be connected to docker host daemon)
-    && curl -fSL "${DOCKER_URL}-${DOCKER_VERSION}" -o /usr/local/bin/docker \
+    && curl -fSL "https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}" -o /usr/local/bin/docker \
     && chmod +x /usr/local/bin/docker \
 
 # Install docker compose
-    && curl -fSL "${DOCKER_COMPOSE_URL}/${DOCKER_COMPOSE_VERSION}/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose \
+    && curl -fSL "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
 
 # Final cleaning
