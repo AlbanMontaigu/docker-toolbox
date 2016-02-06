@@ -40,6 +40,8 @@ RUN apk add --update zsh curl wget bash git perl openssh-client py-pip py-yaml m
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/* /root/.cache
 
+# Zsh configuration file
+ADD ./zsh/.zshrc ~/.zshrc
 
 # Docker entrypoint is zsh
 entrypoint ["/bin/zsh"]
