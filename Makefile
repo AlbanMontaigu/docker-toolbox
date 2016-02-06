@@ -10,7 +10,7 @@ build:
 	docker build --tag $(DOCKER_IMAGE_NAME) .
 
 run:
-	docker run -v "$(pwd)":/workspace \
+	docker run -v $(CURDIR):/workspace \
 			-v /var/run/docker.sock:/var/run/docker.sock \
 			-ti --rm \
 		$(DOCKER_IMAGE_NAME)
