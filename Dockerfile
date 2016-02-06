@@ -25,7 +25,7 @@ ENV DOCKER_VERSION="1.10.0-r0" \
     DOCKER_COMPOSE_VERSION="1.6.0"
 
 # System preparation and setup
-RUN apk add --update zsh docker-$DOCKER_VERSION docker-zsh-completion-$DOCKER_VERSION
+RUN apk add --update zsh docker=$DOCKER_VERSION docker-zsh-completion=$DOCKER_VERSION
 
 
 # Final cleaning
