@@ -5,8 +5,8 @@
 # A friendly light docker image to provide tools and configuration to
 # work in a confortable manner with docker
 # 
-# @see https://pkgs.alpinelinux.org/package
-# @see http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management#Update_the_Package_list
+# @see https://pkgs.alpinelinux.org
+# @see http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
 # @see https://github.com/buildkite/docker-buildkite-agent/blob/master/alpine/Dockerfile
 #
 # ==================================================================================================

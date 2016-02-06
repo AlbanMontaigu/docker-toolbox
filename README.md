@@ -25,6 +25,6 @@ And more...
 
 ## Sources
 
-- [Alpine linux packages](https://pkgs.alpinelinux.org/package)
-- [Update packages in alpine linux](http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management#Update_the_Package_list)
+- [Alpine linux packages](https://pkgs.alpinelinux.org)
+- [Alpine linux package management](http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management)
 - [Compose installation example on alpine](https://github.com/buildkite/docker-buildkite-agent/blob/master/alpine/Dockerfile)
