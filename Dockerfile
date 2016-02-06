@@ -28,11 +28,11 @@ ENV DOCKER_VERSION="1.10.0" \
 
 
 # System preparation and setup
-RUN apk add --update zsh curl
+RUN apk add --update zsh curl \
 
 # Install docker bin for client commands (will be connected to docker host daemon)
     && curl -fSL "${DOCKER_URL}-${DOCKER_VERSION}" -o /usr/local/bin/docker \
-    && chmod +x /usr/local/bin/docker
+    && chmod +x /usr/local/bin/docker \
 
 # Final cleaning
     && rm -rf /var/cache/apk/*
