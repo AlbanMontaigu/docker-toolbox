@@ -34,7 +34,7 @@ RUN apk add --update zsh curl wget bash git perl openssh-client py-pip py-yaml \
     && chmod +x /usr/local/bin/docker \
 
 # Install docker compose
-    && pip install -U pip docker-compose==$DOCKER_COMPOSE_VERSION
+    && pip install -U pip docker-compose==$DOCKER_COMPOSE_VERSION \
 
 # Final cleaning
     && rm -rf /var/cache/apk/* \
