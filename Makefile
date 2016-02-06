@@ -15,13 +15,13 @@ run:
 			-ti --rm \
 		$(DOCKER_IMAGE_NAME)
 
-test:
+tests:
 	docker run \
 		-v $(CURDIR):/app \
 		-v $$(which docker):$$(which docker) \
 		-v /var/run/docker.sock:/docker.sock \
-		-e DOCKER_HOST="unix:///docker.sock" \
 		-e DOCKER_IMAGE_NAME=$(DOCKER_IMAGE_NAME) \
+		-e DOCKER_VERSION=$(DOCKER_VERSION) \
 		-e DOCKER_COMPOSE_VERSION=$(DOCKER_COMPOSE_VERSION) \
 		dduportal/bats:0.4.0 \
 			/app/tests/
