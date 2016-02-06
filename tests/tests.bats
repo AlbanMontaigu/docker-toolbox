@@ -10,7 +10,7 @@
 # =======================================================================
 
 # Loads common features for test
-load test_helper
+load tests_helper
 
 # Test docker compose version
 @test "With no cmd/args, docker-compose version should be ${DOCKER_COMPOSE_VERSION}" {
