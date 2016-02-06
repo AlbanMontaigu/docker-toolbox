@@ -1,4 +1,0 @@
-front:
-  build: .
-bb:
-  image: debian:8.1
