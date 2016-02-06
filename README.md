@@ -31,3 +31,4 @@ And more...
 - [Alpine linux packages](https://pkgs.alpinelinux.org)
 - [Alpine linux package management](http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management)
 - [Compose installation example on alpine](https://github.com/buildkite/docker-buildkite-agent/blob/master/alpine/Dockerfile)
+- [Zsh customization](https://dustri.org/b/my-zsh-configuration.html)
