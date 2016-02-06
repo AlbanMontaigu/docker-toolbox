@@ -1,127 +1,141 @@
-# =========================================
+# ============================================================
+#
 # Global configuration file for zsh
-# =========================================
+#
+# @see https://dustri.org/b/my-zsh-configuration.html
+#
+# ============================================================
 
-# Set up the prompt
-autoload -Uz promptinit
-promptinit
-prompt redhat
+##
+# Initial config
+##
+autoload -U colors zsh-mime-setup select-word-style
+colors          # colors
+zsh-mime-setup  # run everything as if it's an executable
+select-word-style bash # ctrl+w on words
 
-setopt histignorealldups sharehistory
+##
+# Vcs info
+##
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn hg
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats "%{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%} [%{$fg[blue]%}%b%{$reset_color%}] %{$fg[yellow]%}%s%{$reset_color%}:%r"
+precmd() {  # run before each prompt
+  vcs_info
+}
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+##
+# Prompt
+##
+setopt PROMPT_SUBST     # allow funky stuff in prompt
+color="blue"
+if [ "$USER" = "root" ]; then
+    color="red"         # root is red, user is blue
+fi;
+prompt="%{$fg[$color]%}%n%{$reset_color%}@%U%{$fg[yellow]%}%m%{$reset_color%}%u %T %B%~%b "
+RPROMPT='${vim_mode} ${vcs_info_msg_0_}'
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
+##
+# Key bindings
+##
+# Lookup in /etc/termcap or /etc/terminfo else, you can get the right keycode
+# by typing ^v and then type the key or key combination you want to use.
+# "man zshzle" for the list of available actions
+bindkey -e                      # emacs keybindings
+bindkey '\e[1;5C' forward-word            # C-Right
+bindkey '\e[1;5D' backward-word           # C-Left
+bindkey '\e[2~'   overwrite-mode          # Insert
+bindkey '\e[3~'   delete-char             # Del
+bindkey '\e[5~'   history-search-backward # PgUp
+bindkey '\e[6~'   history-search-forward  # PgDn
+bindkey '^A'      beginning-of-line       # Home
+bindkey '^D'      delete-char             # Del
+bindkey '^E'      end-of-line             # End
+bindkey '^R'      history-incremental-pattern-search-backward
 
-# Use modern completion system
-autoload -Uz compinit
+##
+# Completion
+##
+autoload -U compinit
 compinit
+zmodload -i zsh/complist        
+setopt hash_list_all            # hash everything before completion
+setopt completealiases          # complete alisases
+setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word    
+setopt complete_in_word         # allow completion from within a word/phrase
+setopt correct                  # spelling correction for commands
+setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
 
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
+zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # ignore case
+zstyle ':completion:*' menu select=2                        # menu if nb items > 2
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}       # colorz !
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate # list of completers to use
+
+# sections completion !
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format $'\e[00;34m%d'
+zstyle ':completion:*:messages' format $'\e[00;31m%d'
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
+zstyle ':completion:*:manuals' separate-sections true
 
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+zstyle ':completion:*:processes' command 'ps -au$USER'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
+zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=29=34"
+zstyle ':completion:*:*:killall:*' menu yes select
+zstyle ':completion:*:killall:*' force-list always
+users=(jvoisin root)           # because I don't care about others
+zstyle ':completion:*' users $users
 
+#generic completion with --help
+compdef _gnu_generic gcc
+compdef _gnu_generic gdb
 
-# ----------------------------------------
-# Global aliases
-# ----------------------------------------
-alias ls='ls --color=tty'
-alias ll='ls -al'
-alias test-port='nc -z -v -w5'
+##
+# Pushd
+##
+setopt auto_pushd               # make cd push old dir in dir stack
+setopt pushd_ignore_dups        # no duplicates in dir stack
+setopt pushd_silent             # no dir stack after pushd or popd
+setopt pushd_to_home            # `pushd` = `pushd $HOME`
+#
+##
+# History
+##
+HISTFILE=~/.zsh_history         # where to store zsh config
+HISTSIZE=1024                   # big history
+SAVEHIST=1024                   # big history
+setopt append_history           # append
+setopt hist_ignore_all_dups     # no duplicate
+unsetopt hist_ignore_space      # ignore space prefixed commands
+setopt hist_reduce_blanks       # trim blanks
+setopt hist_verify              # show before executing history commands
+setopt inc_append_history       # add commands as they are typed, don't wait until shell exit 
+setopt share_history            # share hist between sessions
+setopt bang_hist                # !keyword
 
-# Tool to test ports
-test_port(){
-    if [ $# -eq 2 ]; then
-        nc -z -v -w5 $1 $2
-    else
-        echo "Usage: test-port HOST PORT"
-    fi
-}
-alias test-port="test_port"
+##
+# Various
+##
+setopt auto_cd                  # if command is a path, cd into it
+setopt auto_remove_slash        # self explicit
+setopt chase_links              # resolve symlinks
+setopt correct                  # try to correct spelling of commands
+setopt extended_glob            # activate complex pattern globbing
+setopt glob_dots                # include dotfiles in globbing
+setopt print_exit_value         # print return value if non-zero
+unsetopt beep                   # no bell on error
+unsetopt bg_nice                # no lower prio for background jobs
+unsetopt clobber                # must use >| to truncate existing files
+unsetopt hist_beep              # no bell on error in history
+unsetopt hup                    # no hup signal at shell exit
+unsetopt ignore_eof             # do not exit on end-of-file
+unsetopt list_beep              # no bell on ambiguous completion
+unsetopt rm_star_silent         # ask for confirmation for `rm *' or `rm path/*'
+setxkbmap -option compose:ralt  # compose-key
+print -Pn "\e]0; %n@%M: %~\a"   # terminal title
 
-
-# ----------------------------------------
-# Docker compose aliases
-# ----------------------------------------
-alias dc='docker-compose'
-alias dc-up='dc up -d'
-alias dc-init='dc stop ; dc rm -f; dc pull ; dc-up'
-alias dc-reset='dc stop ; dc rm -f ; dc-up'
-
-# Change compose app prefix
-dc_prefix(){
-
-    if [ $# -eq 0 ]; then
-        echo $COMPOSE_PROJECT_NAME
-    else
-        export COMPOSE_PROJECT_NAME=$1
-    fi
-}
-alias dc-prefix="dc_prefix"
-
-
-# ----------------------------------------
-# Docker aliases
-# ----------------------------------------
-
-# Docker cmd shortener
-alias dk="docker"
-
-# Show ip of a docker container
-alias dk-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1"
-
-# Kill all running containers.
-alias dk-killall='docker kill $(docker ps -q)'
-
-# Delete all stopped containers.
-alias dk-cleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
-
-# Delete all untagged images.
-alias dk-cleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
-
-# Delete all stopped containers and untagged images.
-alias dk-clean='dk-cleanc || true && dk-cleani'
-
-# Get a ssh inside a container
-dk_sh() {
-    docker exec -ti $1 /bin/sh
-}
-alias dk-sh='dk_sh'
-
-# See files tree in a container
-dk_ls() {
-    docker exec -ti $1 /bin/ls -l $2
-}
-alias dk-ls='dk_ls'
-
-# See files content inside a container
-dk_cat() {
-    docker exec -ti $1 /bin/cat $2
-}
-alias dk-cat='dk_cat'
-
-# Edit files content inside a container
-dk_vi() {
-    docker exec -ti $1 /bin/vi $2
-}
-alias dk-vi='dk_vi'
-
-# Misc
-alias dk-flogs="docker logs -f $1"
+source ~/.alias                 # aliases
