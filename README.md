@@ -78,3 +78,5 @@ For all the **docker-compose** commands please refer to the [official documentat
 - [Alpine linux package management](http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management)
 - [Compose installation example on alpine](https://github.com/buildkite/docker-buildkite-agent/blob/master/alpine/Dockerfile)
 - [Zsh customization](https://dustri.org/b/my-zsh-configuration.html)
+- [Bats testing tool](https://github.com/sstephenson/bats)
+- [Bats how to](https://blog.engineyard.com/2014/bats-test-command-line-tools)
