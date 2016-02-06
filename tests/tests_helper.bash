@@ -19,7 +19,3 @@ dk_cmd() {
         echo "Usage: dk-cmd CONTAINER COMMAND"
     fi
 }
-alias dk-cmd="dk_cmd"
-
-# For the devbox
-alias dk-cmd-devbox="dk-cmd ${DOCKER_IMAGE_NAME}"
