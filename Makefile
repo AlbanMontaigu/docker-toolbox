@@ -10,8 +10,10 @@ build:
 	docker build --tag $(DOCKER_IMAGE_NAME) .
 
 run:
-	docker run -it --rm \
-		-v /var/run/docker.sock:/var/run/docker.sock \
+	docker run -v "$(pwd)":/workspace \
+			-v /var/run/docker.sock:/var/run/docker.sock \
+			-e DOCKER_HOST="unix:///docker.sock" \
+			-ti --rm \
 		$(DOCKER_IMAGE_NAME)
 
 test:
