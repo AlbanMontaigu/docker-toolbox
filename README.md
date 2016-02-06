@@ -7,7 +7,6 @@ My dev box Docker image based on [alpine](https://hub.docker.com/_/alpine/) imag
 ```bash
 $ docker run -v "$(pwd)":/workspace \
              -v /var/run/docker.sock:/var/run/docker.sock \
-             -e DOCKER_HOST="unix:///docker.sock" \
              -ti --rm \
              amontaigu/docker-devbox
 ```
