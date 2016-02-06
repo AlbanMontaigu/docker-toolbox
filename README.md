@@ -21,6 +21,8 @@ $ docker run -v "$(pwd)":/workspace \
 - docker
 - docker-compose
 - nmap-ncat
+- vim
+- nano
 
 And more...
 
