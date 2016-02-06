@@ -22,7 +22,7 @@ load tests_helper
 # Test docker version
 @test "Docker version shloud be  ${DOCKER_VERSION}" {
     result=$(dk_cmd ${DOCKER_IMAGE_NAME} "docker version" | grep Version | head -n 1 | awk '{ print $NF }')
-    [ "$result" eq " ${DOCKER_VERSION}" ]
+    [[ "$result" == " ${DOCKER_VERSION}" ]]
     echo "-$result-"
 }
 
