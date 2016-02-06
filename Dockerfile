@@ -7,6 +7,7 @@
 # 
 # @see https://pkgs.alpinelinux.org/package
 # @see http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management#Update_the_Package_list
+# @see https://github.com/buildkite/docker-buildkite-agent/blob/master/alpine/Dockerfile
 #
 # ==================================================================================================
 
@@ -26,18 +27,18 @@ ENV DOCKER_VERSION="1.10.0" \
 
 
 # System preparation and setup
-RUN apk add --update zsh curl python \
+RUN apk add --update zsh curl wget bash git perl openssh-client py-pip py-yaml \
 
 # Install docker bin for client commands (will be connected to docker host daemon)
     && curl -fSL "https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}" -o /usr/local/bin/docker \
     && chmod +x /usr/local/bin/docker \
 
 # Install docker compose
-    && curl -fSL "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose \
-    && chmod +x /usr/local/bin/docker-compose \
+    && pip install -U pip docker-compose==$DOCKER_COMPOSE_VERSION
 
 # Final cleaning
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && rm -rf /tmp/* /root/.cache `find / -regex '.*\.py[co]'`
 
 
 # Docker entrypoint is zsh
