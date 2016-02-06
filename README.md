@@ -20,7 +20,7 @@ $ docker run -v "$(pwd)":/workspace \
 - wget
 - docker
 - docker-compose
-- nmap-ncat
+- nc
 - vim
 - nano
 
