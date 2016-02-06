@@ -22,4 +22,4 @@ test:
 		-e DOCKER_HOST="unix:///docker.sock" \
 		-e DOCKER_IMAGE_NAME=$(DOCKER_IMAGE_NAME) \
 		dduportal/bats:0.4.0 \
-			/app/tests/bats/
+			/app/tests/
