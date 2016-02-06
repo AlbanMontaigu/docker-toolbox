@@ -26,4 +26,5 @@ tests:
 		-e DOCKER_IMAGE_NAME=$(DOCKER_IMAGE_NAME) \
 		-e DOCKER_VERSION=$(DOCKER_VERSION) \
 		-e DOCKER_COMPOSE_VERSION=$(DOCKER_COMPOSE_VERSION) \
-		dduportal/bats:0.4.0
+		dduportal/bats:0.4.0 \
+			/app/tests/
