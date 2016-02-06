@@ -14,6 +14,7 @@ run:
 			-v /var/run/docker.sock:/var/run/docker.sock \
 			-v $(CURDIR):/workspace \
 			-h docker-devbox \
+			-e COMPOSE_PROJECT_NAME="app" \
 			$(DOCKER_IMAGE_NAME)
 
 tests:

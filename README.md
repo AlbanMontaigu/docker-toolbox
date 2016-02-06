@@ -9,6 +9,7 @@ $ docker run -ti --rm \
              -v "$(pwd)":/workspace \
              -v /var/run/docker.sock:/var/run/docker.sock \
              -h docker-devbox \
+             -e COMPOSE_PROJECT_NAME="app" \
              amontaigu/docker-devbox
 ```
 
