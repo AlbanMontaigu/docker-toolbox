@@ -25,11 +25,9 @@ load tests_helper
 }
 
 @test "Image build with docker-compose" {
-    cd /app/tests/docker
-    dk_devbox_cmd "docker-compose build"
+    dk_devbox_cmd "cd tests/docker && docker-compose build"
 }
 
 @test "Stack up with docker-compose" {
-    cd /app/tests/docker
-    dk_devbox_cmd "docker-compose up"
+    dk_devbox_cmd "cd tests/docker && docker-compose up"
 }

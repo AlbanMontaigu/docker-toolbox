@@ -14,9 +14,9 @@
 dk_devbox_cmd() {
     if [ $# -eq 1 ]; then
         docker run --rm \
-            -v /var/run/docker.sock:/var/run/docker.sock \
-            -v $(pwd):/workspace \
-            -w="/workspace" \
+            -v /var/run/docker.sock:/docker.sock \
+            -v $(CURDIR):/app \
+            -w="/app" \
             ${DOCKER_IMAGE_NAME} -c "$1"
     else
         echo "Usage: dk_devbox_cmd COMMAND"
