@@ -10,10 +10,10 @@ build:
 	docker build --tag $(DOCKER_IMAGE_NAME) .
 
 run:
-	docker run -v $(CURDIR):/workspace \
+	docker run -ti --rm \
 			-v /var/run/docker.sock:/var/run/docker.sock \
-			-ti --rm \
-		$(DOCKER_IMAGE_NAME)
+			-v $(CURDIR):/workspace \
+			$(DOCKER_IMAGE_NAME)
 
 tests:
 	docker run \
