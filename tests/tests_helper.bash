@@ -15,7 +15,7 @@ dk_devbox_cmd() {
     if [ $# -eq 1 ]; then
         docker run --rm \
             -v /var/run/docker.sock:/docker.sock \
-            -v $(CURDIR):/app \
+            -v $DOCKER_HOST_CURDIR:/app \
             -w="/app" \
             ${DOCKER_IMAGE_NAME} -c "$1"
     else
