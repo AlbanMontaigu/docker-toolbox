@@ -38,7 +38,7 @@ RUN apk add --update zsh curl wget bash git perl openssh-client py-pip py-yaml \
 
 # Final cleaning
     && rm -rf /var/cache/apk/* \
-    && rm -rf /tmp/* /root/.cache `find / -regex '.*\.py[co]'`
+    && rm -rf /tmp/* /root/.cache
 
 
 # Docker entrypoint is zsh
