@@ -11,4 +11,4 @@ FROM alpine
 MAINTAINER alban.montaigu@gmail.com
 
 # Command for testing
-CMD ["/bin/sh", "OK"]
+CMD ["/bin/echo", "OK"]
