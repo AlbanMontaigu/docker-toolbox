@@ -14,14 +14,14 @@ load tests_helper
 
 # Test docker compose version
 @test "With no cmd/args, docker-compose version should be ${DOCKER_COMPOSE_VERSION}" {
-    result=$(dk_cmd ${DOCKER_IMAGE_NAME} "docker-compose --version")
+    result=$(dk_devbox_cmd "docker-compose --version")
     [[ "$result" == *"docker-compose version ${DOCKER_COMPOSE_VERSION}"* ]]
     echo "-$result-"
 }
 
 # Test docker version
 @test "Docker version shloud be  ${DOCKER_VERSION}" {
-    result=$(dk_cmd ${DOCKER_IMAGE_NAME} "docker version" | grep Version | head -n 1 | awk '{ print $NF }')
+    result=$(dk_devbox_cmd "docker version | grep Version | head -n 1 | awk '{ print \$NF }'")
     [[ "$result" == " ${DOCKER_VERSION}" ]]
     echo "-$result-"
 }

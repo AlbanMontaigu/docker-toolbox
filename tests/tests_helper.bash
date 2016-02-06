@@ -11,11 +11,13 @@
 
 
 # Allows to exec a command inside the container
-# Assuming the entrypoint is a shell !
-dk_cmd() {
-    if [ $# -eq 2 ]; then
-        docker run --rm $1 -c "$2"
+dk_devbox_cmd() {
+    if [ $# eq 1 ]; then
+        docker run --rm -it \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -v "$(pwd)":/workspace \
+            ${DOCKER_IMAGE_NAME} -c "$1"
     else
-        echo "Usage: dk-cmd CONTAINER COMMAND"
+        echo "Usage: dk_devbox_cmd COMMAND"
     fi
 }
