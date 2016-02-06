@@ -135,7 +135,6 @@ unsetopt hup                    # no hup signal at shell exit
 unsetopt ignore_eof             # do not exit on end-of-file
 unsetopt list_beep              # no bell on ambiguous completion
 unsetopt rm_star_silent         # ask for confirmation for `rm *' or `rm path/*'
-setxkbmap -option compose:ralt  # compose-key
 print -Pn "\e]0; %n@%M: %~\a"   # terminal title
 
 source ~/.alias                 # aliases
