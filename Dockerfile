@@ -41,6 +41,9 @@ RUN apk add --update zsh curl wget bash git perl openssh-client py-pip py-yaml m
 # Install docker compose
     && pip install -U pip docker-compose==$DOCKER_COMPOSE_VERSION \
 
+# Root default shell is now zsh
+    && sed -ri 's;^(root:x:0:0:root:/root:)/bin/ash;\1/bin/zsh;' /etc/passwd
+
 # Final cleaning
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/* /root/.cache
