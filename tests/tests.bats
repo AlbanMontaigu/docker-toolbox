@@ -26,5 +26,5 @@ load tests_helper
 
 @test "Image build with docker-compose" {
     cd /app/tests/docker
-    dk_devbox_cmd "dc build"
+    dk_devbox_cmd "docker-compose build"
 }
