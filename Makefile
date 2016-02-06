@@ -7,6 +7,11 @@ all: build test
 build:
 	docker build --tag $(DOCKER_IMAGE_NAME) .
 
+run:
+	docker run -it --rm \
+		-v /var/run/docker.sock:/var/run/docker.sock \
+		$(DOCKER_IMAGE_NAME)
+
 test:
 	docker run \
 		-v $(CURDIR):/app \
