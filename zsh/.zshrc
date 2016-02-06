@@ -44,6 +44,17 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # ----------------------------------------
 alias ls='ls --color=tty'
 alias ll='ls -al'
+alias test-port='nc -z -v -w5'
+
+# Tool to test ports
+test_port(){
+    if [ $# -eq 2 ]; then
+        nc -z -v -w5 $1 $2
+    else
+        echo "Usage: test-port HOST PORT"
+    fi
+}
+alias test-port="test_port"
 
 
 # ----------------------------------------

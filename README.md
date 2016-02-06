@@ -19,7 +19,7 @@ $ docker run -v "$(pwd)":/workspace \
 - wget
 - docker
 - docker-compose
-- telnet
+- nmap-ncat
 
 And more...
 
