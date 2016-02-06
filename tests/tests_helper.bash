@@ -17,6 +17,8 @@ dk_devbox_cmd() {
             -v /var/run/docker.sock:/docker.sock \
             -v $DOCKER_HOST_CURDIR:/app \
             -w="/app" \
+            -e DOCKER_HOST="unix:///docker.sock" \
+            -e DOCKER_HOST_CURDIR=$DOCKER_HOST_CURDIR \
             ${DOCKER_IMAGE_NAME} -c "$1"
     else
         echo "Usage: dk_devbox_cmd COMMAND"
