@@ -34,6 +34,10 @@ RUN apk add --update zsh curl \
     && curl -fSL "${DOCKER_URL}-${DOCKER_VERSION}" -o /usr/local/bin/docker \
     && chmod +x /usr/local/bin/docker \
 
+# Install docker compose
+    && curl -fSL "${COMPOSE_URL}/${COMPOSE_VERSION}/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose \
+    && chmod +x /usr/local/bin/docker-compose
+
 # Final cleaning
     && rm -rf /var/cache/apk/*
 
