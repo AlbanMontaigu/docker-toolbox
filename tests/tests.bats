@@ -20,7 +20,7 @@ load tests_helper
 }
 
 # Test docker version
-@test "Docker version shloud be  ${DOCKER_VERSION}" {
+@test "Docker version shloud be ${DOCKER_VERSION}" {
     result=$(dk_devbox_cmd "docker version | grep Version | head -n 1 | awk '{ print \$NF }'")
     [[ "$result" == "${DOCKER_VERSION}" ]]
     echo "-$result-"
