@@ -1,4 +1,4 @@
-.PHONY: build test all
+.PHONY: build tests all
 
 DOCKER_IMAGE_NAME=amontaigu/docker-devbox
 DOCKER_VERSION="1.10.0"
