@@ -1,36 +1,36 @@
-# My devbox Docker image.
+# ==================================================================================================
+# 
+# DOCKER DEVBOX
 #
-# VERSION 1.9.0
+# A friendly light docker image to provide tools and configuration to
+# work in a confortable manner with docker
+# 
+# @see https://pkgs.alpinelinux.org/package
+# @see http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management#Update_the_Package_list
+#
+# ==================================================================================================
 
-from debian:jessie
 
+# Base image
+# 3.3 last version as per 2016-02-06
+from alpine:3.3
+
+
+# Maintainer
 maintainer Alban Montaigu <https://github.com/AlbanMontaigu>
 
-env DEBIAN_FRONTEND noninteractive
 
-# Install Ansible
-run apt-get update && \
-    apt-get install -y openssh-client ansible && \
-    apt-get clean
+# Environment configuration
+ENV DOCKER_VERSION="1.10.0-r0" \
+    DOCKER_COMPOSE_VERSION="1.6.0"
 
-# Add playbooks to the Docker image
-copy ansible /tmp/ansible
-workdir /tmp/ansible
+# System preparation and setup
+RUN apk add --update zsh docker-$DOCKER_VERSION docker-zsh-completion-$DOCKER_VERSION
 
-# Run Ansible to configure the Docker image
-run ansible-playbook playbook.yml -i hosts
 
-# Setup working directory
-workdir /home/dev
+# Final cleaning
+    && rm -rf /var/cache/apk/*
 
-# Run everything below as the dev user
-user dev
 
-# Setup dev user environment
-env HOME /home/dev
-env PATH $HOME/bin:$PATH
-env LANG fr_FR.UTF-8
-env LANGUAGE fr_FR:fr
-env LC_ALL fr_FR.UTF-8
-
+# Docker entrypoint is zsh
 entrypoint ["/bin/zsh"]

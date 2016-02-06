@@ -1,3 +1,0 @@
-- name: Install Docker compose binary
-  get_url: url={{ docker_compose_url }} dest=/usr/local/bin/docker-compose mode=0755
-
