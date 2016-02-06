@@ -1,3 +1,2 @@
 myAlpine:
   build: .
-  image: docker_myAlpine

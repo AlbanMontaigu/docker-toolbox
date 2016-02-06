@@ -25,5 +25,5 @@ load tests_helper
 }
 
 @test "Image build with docker-compose" {
-    dk_devbox_cmd "dc build"
+    dk_devbox_cmd "dc build myAlpine"
 }
