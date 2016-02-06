@@ -11,25 +11,20 @@
 #
 # ==================================================================================================
 
-
 # Base image
 # 3.3 last version as per 2016-02-06
 from alpine:3.3
 
-
 # Maintainer
 maintainer Alban Montaigu <https://github.com/AlbanMontaigu>
-
 
 # Root user
 USER root
 WORKDIR /root
 
-
 # Environment configuration
 ENV DOCKER_VERSION="1.10.0" \
     DOCKER_COMPOSE_VERSION="1.6.0"
-
 
 # System preparation and setup
 RUN apk add --update zsh curl wget bash git perl openssh-client py-pip py-yaml \
@@ -49,10 +44,8 @@ RUN apk add --update zsh curl wget bash git perl openssh-client py-pip py-yaml \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/* /root/.cache
 
-
 # Zsh configuration file
 ADD ./zsh/.* /root/
-
 
 # Docker entrypoint is zsh
 entrypoint ["/bin/zsh"]
