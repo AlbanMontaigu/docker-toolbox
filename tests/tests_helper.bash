@@ -14,7 +14,7 @@
 # Assuming the entrypoint is a shell !
 dk_cmd() {
     if [ $# -eq 2 ]; then
-        docker run --rm --it $1 -c "$2"
+        docker run --rm $1 -c "$2"
     else
         echo "Usage: dk-cmd CONTAINER COMMAND"
     fi
