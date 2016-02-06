@@ -1,2 +1,4 @@
 myalpine:
   build: .
+  container_name: myalpine
+  image: myalpine
