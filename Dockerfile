@@ -32,7 +32,7 @@ ENV DOCKER_VERSION="1.10.0" \
 
 
 # System preparation and setup
-RUN apk add --update zsh curl wget bash git perl openssh-client py-pip py-yaml make m4 nmap-ncat \
+RUN apk add --update zsh curl wget bash git perl openssh-client py-pip py-yaml make m4 nmap-ncat mercurial \
 
 # Install docker bin for client commands (will be connected to docker host daemon)
     && curl -fSL "https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}" -o /usr/local/bin/docker \

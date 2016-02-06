@@ -14,6 +14,7 @@ $ docker run -v "$(pwd)":/workspace \
 ## Contains
 
 - git
+- mercurial
 - zsh
 - curl
 - wget
