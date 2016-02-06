@@ -26,6 +26,5 @@ load tests_helper
 
 @test "Image build with docker-compose" {
     cd /app/tests/docker
-    ls -lisa
-    echo $(dk_devbox_cmd "ls -lisa")
+    dk_devbox_cmd "ls -lisa"
 }
