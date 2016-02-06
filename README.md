@@ -11,7 +11,7 @@ $ docker run -v "$(pwd)":/workspace \
              amontaigu/docker-devbox
 ```
 
-## Contains
+## Key softwares availables in your box
 
 - git
 - mercurial
@@ -26,12 +26,13 @@ $ docker run -v "$(pwd)":/workspace \
 
 And more...
 
-## Commands availables in your dk-devbox
+## Commands availables in your box
 
 ### Misc commands
 
 - ```dk``` is a ```docker``` alias
 - ```dc``` is a ```docker-compose``` alias
+- ```test-port HOST PORT``` to validate quickly with nc if a certain port on a certain host is accessible
 
 ### Main (custom) docker commands
 
