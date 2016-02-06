@@ -62,7 +62,7 @@ compinit
 zmodload -i zsh/complist        
 setopt hash_list_all            # hash everything before completion
 setopt completealiases          # complete alisases
-setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word    
+setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word
 setopt complete_in_word         # allow completion from within a word/phrase
 setopt correct                  # spelling correction for commands
 setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
@@ -87,12 +87,8 @@ zstyle ':completion:*:kill:*' force-list always
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=29=34"
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*' force-list always
-users=(jvoisin root)           # because I don't care about others
+users=(root)           # because I don't care about others
 zstyle ':completion:*' users $users
-
-#generic completion with --help
-compdef _gnu_generic gcc
-compdef _gnu_generic gdb
 
 ##
 # Pushd
@@ -101,7 +97,7 @@ setopt auto_pushd               # make cd push old dir in dir stack
 setopt pushd_ignore_dups        # no duplicates in dir stack
 setopt pushd_silent             # no dir stack after pushd or popd
 setopt pushd_to_home            # `pushd` = `pushd $HOME`
-#
+
 ##
 # History
 ##
