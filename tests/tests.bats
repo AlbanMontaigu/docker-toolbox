@@ -13,21 +13,21 @@
 load tests_helper
 
 # Test docker version
-@test "Docker version shloud be ${DOCKER_VERSION}" {
+@test "docker version is ${DOCKER_VERSION}" {
     result=$(dk_devbox_cmd "docker version | grep Version | head -n 1 | awk '{ print \$NF }'")
     [[ "$result" == "${DOCKER_VERSION}" ]]
 }
 
 # Test docker compose version
-@test "Docker-compose version should be ${DOCKER_COMPOSE_VERSION}" {
+@test "docker-compose version is ${DOCKER_COMPOSE_VERSION}" {
     result=$(dk_devbox_cmd "docker-compose --version")
     [[ "$result" == *"docker-compose version ${DOCKER_COMPOSE_VERSION}"* ]]
 }
 
-@test "Image build with docker-compose" {
+@test "docker-compose build is ok" {
     dk_devbox_cmd "cd tests/docker && docker-compose build"
 }
 
-@test "Stack up with docker-compose" {
+@test "docker-compose up is ok" {
     dk_devbox_cmd "cd tests/docker && docker-compose up"
 }
