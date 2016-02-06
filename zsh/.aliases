@@ -33,7 +33,6 @@ alias dc-reset='dc stop ; dc rm -f ; dc-up'
 
 # Change compose app prefix
 dc_prefix(){
-
     if [ $# -eq 0 ]; then
         echo $COMPOSE_PROJECT_NAME
     else
