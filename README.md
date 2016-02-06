@@ -5,9 +5,10 @@ My dev box Docker image based on [alpine](https://hub.docker.com/_/alpine/) imag
 ## Usage
 
 ```bash
-$ docker run -v "$(pwd)":/workspace \
+$ docker run -ti --rm \
+             -v "$(pwd)":/workspace \
              -v /var/run/docker.sock:/var/run/docker.sock \
-             -ti --rm \
+             -h docker-devbox \
              amontaigu/docker-devbox
 ```
 
