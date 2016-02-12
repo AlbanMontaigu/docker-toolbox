@@ -1,5 +1,11 @@
 
-## 2016-02-06
+## 1.10.1 (2016-02-12)
+- Update to docker 1.10.1
+- New command ```dk-sh-img``` to run an image and ssh into it
+- Some of ```dk-*``` commands are now auto documented + param controlled
+- Now dc-* is replaced with dc * and new subcommands
+
+## 1.10.0 (2016-02-06)
 - Update to docker 1.10.0
 - Update to docker-compose 1.6.0
 - Complete rework with alpine linux
