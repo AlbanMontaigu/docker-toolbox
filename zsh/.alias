@@ -25,10 +25,29 @@ alias test-port="test_port"
 # ----------------------------------------
 # Docker compose aliases
 # ----------------------------------------
-alias dc='docker-compose'
-alias dc-up='dc up -d'
-alias dc-init='dc stop ; dc rm -f; dc pull ; dc-up'
-alias dc-reset='dc stop ; dc rm -f ; dc-up'
+
+# Docker compose alias plus new features for it
+dc(){
+
+    # To enable users to learn the commands passed
+    set -x 
+
+    # Introduce new commands
+    case ${1} in
+        upd) docker-compose up -d
+            ;;
+        init) docker-compose stop ; docker-compose rm -f ; docker-compose pull ; docker-compose up -d
+            ;;
+        reset) docker-compose stop ; docker-compose rm -f ; docker-compose up -d
+            ;;
+        *) docker-compose "$@"
+            ;;
+    esac
+
+    # Disable command showing
+    set +x 
+}
+
 
 # Change compose app prefix
 dc_prefix(){
