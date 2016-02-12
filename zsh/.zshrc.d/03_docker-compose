@@ -123,7 +123,7 @@ dc(){
             ;;
         prefix) dc_prefix "$2"
             ;;
-        help) dc_help "$1"
+        help) dc_help "$2"
             ;;
         "") dc_custom_usage
             ;;
