@@ -104,6 +104,8 @@ dc_help(){
             ;;
         prefix) dc_prefix_help
             ;;
+        "") docker-compose help
+            ;;
         *) docker-compose help "$@"
             ;;
     esac
