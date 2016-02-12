@@ -3,7 +3,7 @@
 # ============================================================
 
 # Compose up in daemon mode
-dc_upd(){
+dc_ud(){
     sx docker-compose up -d
 }
 
@@ -50,7 +50,7 @@ dc_custom_usage(){
 # Docker compose alias plus new features for it
 dc(){
     case "${1}" in
-        upd) dc_upd
+        ud) dc_ud
             ;;
         init) dc_init
             ;;
