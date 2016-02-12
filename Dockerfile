@@ -45,7 +45,8 @@ RUN apk add --update zsh curl git perl openssh-client py-pip py-yaml \
     && rm -rf /tmp/* /root/.cache
 
 # Zsh configuration file
-ADD ./zsh/.* /root/
+ADD ./zsh/.zshrc /root/
+ADD ./zsh/.zshrc.d /root/
 
 # Docker entrypoint is zsh
 entrypoint ["/bin/zsh"]
