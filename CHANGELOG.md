@@ -7,6 +7,9 @@
 - Didactic mode to show real commands when using alias or functions
 - ```dc``` will now auto document sub commands
 - New organisation of custom commands
+- ```vi``` is now set to ```vim```
+- Now dc is fully documented
+- Totak rework of docker custom command + autodoc
 
 ## 1.10.0 (2016-02-06)
 - Update to docker 1.10.0
