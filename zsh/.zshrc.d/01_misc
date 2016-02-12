@@ -3,6 +3,9 @@
 # Misc custom commands
 # ============================================================
 
+# Want a good editor by default
+alias vi="vim"
+
 # To show and execute commands in a didactic mode
 show_exec() {
     echo "[CMD] $@"
