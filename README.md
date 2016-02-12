@@ -38,19 +38,20 @@ And more...
 
 ### Main (custom) docker commands
 
-- ```dk-ip [container-name-or-id]``` to know current ip of the specified container
-- ```dk-killall``` stop all running containers
-- ```dk-cleanc``` delete all stoped conainters
-- ```dk-cleani```delete untagged images
-- ```dk-clean``` do a ```dk-cleanc``` and a ```dk-cleani```
+- ```dk ip [container-name-or-id]``` to know current ip of the specified container
+- ```dk killa``` stop all running containers
+- ```dk cleanc``` delete all stoped conainters
+- ```dk cleani```delete untagged images
+- ```dk clean``` do a ```dk-cleanc``` and a ```dk-cleani```
 - ```dk ps``` show all running containers
 - ```dk ps -a``` show all running and stoped containers
 - ```dk images``` show all donloads images
-- ```dk-flogs [container-name-or-id]``` show containers logs in a tail way
-- ```dk-sh [container-name-or-id]``` opens a terminal in the specified container
-- ```dk-ls [container-name-or-id]``` do a ls command in the specified container
-- ```dk-cat [container-name-or-id] [file]``` do a cat command in the specified container for the specified file
-- ```dk-vi [container-name-or-id] [file]``` do a vi command in the specified container for the specified file
+- ```dk logsf [container-name-or-id]``` show containers logs in a tail way
+- ```dk shc [container-name-or-id]``` opens a terminal in the specified container
+- ```dk shi [image]``` opens a terminal in the specified container
+- ```dk ls [container-name-or-id]``` do a ls command in the specified container
+- ```dk cat [container-name-or-id] [file]``` do a cat command in the specified container for the specified file
+- ```dk vi [container-name-or-id] [file]``` do a vi command in the specified container for the specified file
 
 For all the **docker** commands please refer to the [official documentation](https://docs.docker.com/reference/commandline/cli/).
 
