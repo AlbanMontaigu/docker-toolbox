@@ -68,9 +68,9 @@ dc_prefix(){
 # Show compose usage + information about custom commands
 dc_custom_usage(){
     echo
-    echo "dc = docker-compose alias with enhancements"
+    echo "dc = docker-compose alias with enhancements."
     echo
-    docker-compose
+    docker-compose 2>&1 >/dev/null | sed 's/docker-compose/dc/g'
     echo
     echo "Custom dc commands:"
     echo "  upd                Compose up in daemon mode"
@@ -78,6 +78,7 @@ dc_custom_usage(){
     echo "  reset              Deep restart with image cleaning"
     echo "  prefix             Shows or changes compose app prefix"
     echo
+    return 1
 }
 
 # Docker compose alias plus new features for it
