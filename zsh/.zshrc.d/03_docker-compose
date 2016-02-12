@@ -124,6 +124,7 @@ dc(){
         prefix) dc_prefix "$2"
             ;;
         help) dc_help "$1"
+            ;;
         "") dc_custom_usage
             ;;
         *) sx docker-compose "$@"
