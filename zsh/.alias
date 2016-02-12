@@ -1,13 +1,17 @@
-# =========================================
+# ============================================================
 #
 # Personal aliases for this environment
 #
-# =========================================
+# @Note : set -x (activate) and set +x are used sometimes
+#         to allow users to learn real commands passed to 
+#         the system with alias and so on
+#
+# ============================================================
 
 
-# ----------------------------------------
+# ------------------------------------------------------------
 # Global aliases
-# ----------------------------------------
+# ------------------------------------------------------------
 alias ls='ls --color=tty'
 alias ll='ls -al'
 
@@ -22,17 +26,13 @@ test_port(){
 alias test-port="test_port"
 
 
-# ----------------------------------------
+# ------------------------------------------------------------
 # Docker compose aliases
-# ----------------------------------------
+# ------------------------------------------------------------
 
 # Docker compose alias plus new features for it
 dc(){
-
-    # To enable users to learn the commands passed
-    set -x 
-
-    # Introduce new commands
+    set -x
     case ${1} in
         upd) docker-compose up -d
             ;;
@@ -43,11 +43,8 @@ dc(){
         *) docker-compose "$@"
             ;;
     esac
-
-    # Disable command showing
     set +x 
 }
-
 
 # Change compose app prefix
 dc_prefix(){
@@ -60,9 +57,9 @@ dc_prefix(){
 alias dc-prefix="dc_prefix"
 
 
-# ----------------------------------------
+# ------------------------------------------------------------
 # Docker aliases
-# ----------------------------------------
+# ------------------------------------------------------------
 
 # Docker cmd shortener
 alias dk="docker"
