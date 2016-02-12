@@ -95,7 +95,7 @@ dc_custom_usage(){
 # Help complements
 # ------------------------------------------------------------
 dc_help(){
-    case "${1}" in
+    case "$1" in
         upd) dc_upd_help
             ;;
         init) dc_init_help
