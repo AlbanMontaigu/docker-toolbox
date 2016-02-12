@@ -1,0 +1,84 @@
+# ============================================================
+# Docker custom commands
+# ============================================================
+
+# Docker cmd shortener
+alias dk="docker"
+
+# Show ip of a docker container
+alias dk-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1"
+
+# Kill all running containers.
+alias dk-killall='docker kill $(docker ps -q)'
+
+# Delete all stopped containers.
+alias dk-cleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+
+# Delete all untagged images.
+alias dk-cleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+
+# Delete all stopped containers and untagged images.
+alias dk-clean='dk-cleanc || true && dk-cleani'
+
+# Get a ssh inside a container
+dk_sh() {
+    if [ $# -eq 1 ]; then
+        sx docker exec -ti $1 /bin/sh
+    else
+        echo "Usage: dk-sh CONTAINER"
+        echo ""
+        echo "Starts a shell inside a container."
+    fi
+}
+alias dk-sh='dk_sh'
+
+# Get a shell in a container started from the specified image
+dk_sh_img() {
+    if [ $# -eq 1 ]; then
+        sx docker run -it --rm --entrypoint="/bin/sh" $1
+    else
+        echo "Usage: dk-sh-img IMAGE"
+        echo ""
+        echo "Runs an image as a container and start a shell inside."
+    fi
+}
+alias dk-sh-img='dk_sh_img'
+
+# See files tree in a container
+dk_ls() {
+    if [ $# -eq 2 ]; then
+        sx docker exec -ti $1 /bin/ls -l $2
+    else
+        echo "Usage: dk-ls CONTAINER PATH"
+        echo ""
+        echo "Outputs directory content from inside a container."
+    fi
+}
+alias dk-ls='dk_ls'
+
+# See files content inside a container
+dk_cat() {
+    if [ $# -eq 2 ]; then
+        sx docker exec -ti $1 /bin/cat $2
+    else
+        echo "Usage: dk-cat CONTAINER PATH"
+        echo ""
+        echo "Outputs file content from inside a container."
+    fi
+}
+alias dk-cat='dk_cat'
+
+# Edit files content inside a container
+dk_vi() {
+    if [ $# -eq 2 ]; then
+        sx docker exec -ti $1 /bin/vi $2
+    else
+        echo "Usage: dk-vi CONTAINER PATH"
+        echo ""
+        echo "Edits file content from inside a container."
+    fi
+}
+alias dk-vi='dk_vi'
+
+# Misc
+alias dk-flogs="docker logs -f $1"

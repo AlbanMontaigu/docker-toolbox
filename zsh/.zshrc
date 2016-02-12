@@ -133,4 +133,14 @@ unsetopt list_beep              # no bell on ambiguous completion
 unsetopt rm_star_silent         # ask for confirmation for `rm *' or `rm path/*'
 print -Pn "\e]0; %n@%M: %~\a"   # terminal title
 
-source ~/.alias                 # aliases
+
+# ------------------------------------------------------------
+# Import custom configurations in a dynamic way
+#
+# NOTE: prefix the files with a number to manage order
+# ------------------------------------------------------------
+for zshrc_file in ~/.alias.d/* ; do
+    if [-f $zshrc_file ]; then 
+        source $zshrc_file
+    fi
+done

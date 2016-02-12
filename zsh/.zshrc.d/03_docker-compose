@@ -1,0 +1,66 @@
+# ============================================================
+# Docker compose custom commands
+# ============================================================
+
+# Compose up in daemon mode
+dc_upd(){
+    sx docker-compose up -d
+}
+
+# Deep restart with images cleaning and pulling
+dc_init(){
+    sx docker-compose stop
+    sx docker-compose rm -f
+    sx docker-compose pull
+    sx docker-compose up -d
+}
+
+# Deep restart with image cleaning
+dc_reset(){
+    sx docker-compose stop
+    sx docker-compose rm -f
+    sx docker-compose up -d
+}
+
+# Shows or changes compose app prefix
+dc_prefix(){
+    if [ $# -eq 0 ]; then
+        echo $COMPOSE_PROJECT_NAME
+    else
+        export COMPOSE_PROJECT_NAME=$1
+    fi
+}
+
+# Show compose usage + information about custom commands
+dc_custom_usage(){
+    echo
+    echo "dc = docker-compose alias with enhancements."
+    echo
+    docker-compose 2>&1 >/dev/null | sed 's/docker-compose/dc/g'
+    echo
+    echo "Custom dc commands:"
+    echo "  upd                Compose up in daemon mode"
+    echo "  init               Deep restart with images cleaning and pulling"
+    echo "  reset              Deep restart with image cleaning"
+    echo "  prefix             Shows or changes compose app prefix"
+    echo
+    return 1
+}
+
+# Docker compose alias plus new features for it
+dc(){
+    case "${1}" in
+        upd) dc_upd
+            ;;
+        init) dc_init
+            ;;
+        reset) dc_reset
+            ;;
+        prefix) dc_prefix "$2"
+            ;;
+        "") dc_custom_usage
+            ;;
+        *) sx docker-compose "$@"
+            ;;
+    esac
+}
