@@ -112,7 +112,7 @@ dc_help(){
 
 
 # ------------------------------------------------------------
-# Docker compose alias plus new features for it
+# Docker compose command plus new features for it
 # ------------------------------------------------------------
 dc(){
     case "$1" in
