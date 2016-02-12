@@ -3,7 +3,9 @@
 - Update to docker 1.10.1
 - New command ```dk-sh-img``` to run an image and ssh into it
 - Some of ```dk-*``` commands are now auto documented + param controlled
-- Now dc-* is replaced with dc * and new subcommands
+- Now ```dc-*``` is replaced with ```dc *``` and new subcommands
+- Didactic mode to show real commands when using alias or functions
+- ```dc``` will now auto document sub commands
 
 ## 1.10.0 (2016-02-06)
 - Update to docker 1.10.0
