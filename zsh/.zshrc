@@ -139,7 +139,7 @@ print -Pn "\e]0; %n@%M: %~\a"   # terminal title
 #
 # NOTE: prefix the files with a number to manage order
 # ------------------------------------------------------------
-for zshrc_file in ~/.alias.d/* ; do
+for zshrc_file in ~/.zshrc.d/* ; do
     if [-f $zshrc_file ]; then 
         source $zshrc_file
     fi
