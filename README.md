@@ -13,7 +13,7 @@ $ docker run -ti --rm \
              amontaigu/docker-devbox
 ```
 
-## Key softwares availables in your box
+## Key softwares available in your box
 
 - git
 - mercurial
