@@ -69,6 +69,18 @@ dk_sh() {
 }
 alias dk-sh='dk_sh'
 
+# Get a shell in a container started from the specified image
+dk_sh_img() {
+    if [ $# -eq 1 ]; then
+        docker run -it --rm --entrypoint="/bin/sh" $1
+    else
+        echo "Usage: dk-sh-img IMAGE"
+        echo ""
+        echo "Runs an image as a container and start a shell inside."
+    fi
+}
+alias dk-sh-img='dk_sh_img'
+
 # See files tree in a container
 dk_ls() {
     docker exec -ti $1 /bin/ls -l $2
