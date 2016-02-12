@@ -14,7 +14,7 @@ dc_upd_help(){
     echo "Usage: dc upd"
     echo
     echo "Docker compose up in daemon mode."
-    echo
+    return 1
 }
 
 
@@ -32,7 +32,7 @@ dc_init_help(){
     echo "Usage: dc init"
     echo
     echo "Deep restart with images cleaning and pulling."
-    echo
+    return 1
 }
 
 
@@ -49,7 +49,7 @@ dc_reset_help(){
     echo "Usage: dc reset"
     echo
     echo "Deep restart with image cleaning."
-    echo
+    return 1
 }
 
 
@@ -68,7 +68,7 @@ dc_prefix_help(){
     echo "Usage: dc prefix [NEW_PREFIX]"
     echo
     echo "Shows or changes (if NEW_PREFIX is specified) compose app prefix."
-    echo
+    return 1
 }
 
 
@@ -86,7 +86,6 @@ dc_custom_usage(){
     echo "  init               Deep restart with image cleaning and pulling"
     echo "  reset              Deep restart with image cleaning"
     echo "  prefix             Shows or changes compose app prefix"
-    echo
     return 1
 }
 
