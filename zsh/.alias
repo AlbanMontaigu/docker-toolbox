@@ -2,16 +2,22 @@
 #
 # Personal aliases for this environment
 #
-# @Note : set -x (activate) and set +x are used sometimes
-#         to allow users to learn real commands passed to 
-#         the system with alias and so on
-#
 # ============================================================
 
 
 # ------------------------------------------------------------
 # Global aliases
 # ------------------------------------------------------------
+
+# To show and execute commands in a didactic mode
+show_exec() {
+    echo "[CMD] $@"
+    eval "$@"
+}
+alias show-exec="show_exec"
+alias sx="show_exec"
+
+# Show dir facility
 alias ls='ls --color=tty'
 alias ll='ls -al'
 
@@ -32,18 +38,16 @@ alias test-port="test_port"
 
 # Docker compose alias plus new features for it
 dc(){
-    set -x
     case ${1} in
-        upd) docker-compose up -d
+        upd) sx docker-compose up -d
             ;;
-        init) docker-compose stop ; docker-compose rm -f ; docker-compose pull ; docker-compose up -d
+        init) sx docker-compose stop ; sx docker-compose rm -f ; sx docker-compose pull ; sx docker-compose up -d
             ;;
-        reset) docker-compose stop ; docker-compose rm -f ; docker-compose up -d
+        reset) sx docker-compose stop ; sx docker-compose rm -f ; sx docker-compose up -d
             ;;
-        *) docker-compose "$@"
+        *) sx docker-compose "$@"
             ;;
     esac
-    set +x 
 }
 
 # Change compose app prefix
@@ -82,9 +86,7 @@ alias dk-clean='dk-cleanc || true && dk-cleani'
 # Get a ssh inside a container
 dk_sh() {
     if [ $# -eq 1 ]; then
-        set -x
-        docker exec -ti $1 /bin/sh
-        set +x
+        sx docker exec -ti $1 /bin/sh
     else
         echo "Usage: dk-sh CONTAINER"
         echo ""
@@ -96,9 +98,7 @@ alias dk-sh='dk_sh'
 # Get a shell in a container started from the specified image
 dk_sh_img() {
     if [ $# -eq 1 ]; then
-        set -x
-        docker run -it --rm --entrypoint="/bin/sh" $1
-        set +x
+        sx docker run -it --rm --entrypoint="/bin/sh" $1
     else
         echo "Usage: dk-sh-img IMAGE"
         echo ""
@@ -110,9 +110,7 @@ alias dk-sh-img='dk_sh_img'
 # See files tree in a container
 dk_ls() {
     if [ $# -eq 2 ]; then
-        set -x
-        docker exec -ti $1 /bin/ls -l $2
-        set +x
+        sx docker exec -ti $1 /bin/ls -l $2
     else
         echo "Usage: dk-ls CONTAINER PATH"
         echo ""
@@ -124,9 +122,7 @@ alias dk-ls='dk_ls'
 # See files content inside a container
 dk_cat() {
     if [ $# -eq 2 ]; then
-        set -x
-        docker exec -ti $1 /bin/cat $2
-        set +x
+        sx docker exec -ti $1 /bin/cat $2
     else
         echo "Usage: dk-cat CONTAINER PATH"
         echo ""
@@ -138,9 +134,7 @@ alias dk-cat='dk_cat'
 # Edit files content inside a container
 dk_vi() {
     if [ $# -eq 2 ]; then
-        set -x
-        docker exec -ti $1 /bin/vi $2
-        set +x
+        sx docker exec -ti $1 /bin/vi $2
     else
         echo "Usage: dk-vi CONTAINER PATH"
         echo ""
