@@ -6,6 +6,7 @@
 - Now ```dc-*``` is replaced with ```dc *``` and new subcommands
 - Didactic mode to show real commands when using alias or functions
 - ```dc``` will now auto document sub commands
+- New organisation of custom commands
 
 ## 1.10.0 (2016-02-06)
 - Update to docker 1.10.0
