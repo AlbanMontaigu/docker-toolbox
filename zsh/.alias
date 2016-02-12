@@ -10,7 +10,6 @@
 # ----------------------------------------
 alias ls='ls --color=tty'
 alias ll='ls -al'
-alias test-port='nc -z -v -w5'
 
 # Tool to test ports
 test_port(){
