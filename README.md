@@ -70,7 +70,7 @@ All these commands will process the services you described in your ```docker-com
 - ```dc stop [container-compose-yml-name]``` stop a specific container **Do not stop all the containers if you work only with one !**
 - ```dc restart [container-compose-yml-name]``` restart a specific container **Do not stop all the containers if you work only with one !**
 - ```dc prefix``` show current compose project name *(will be used as a prefix for containers names)*. Default is ```app``` and will produce containers names like ```app_myname_1```
-- ```dc-prefix [newprefix]``` change the project name for compose
+- ```dc prefix [newprefix]``` change the project name for compose
 
 For all the **docker-compose** commands please refer to the [official documentation](https://docs.docker.com/compose/reference/).
 
