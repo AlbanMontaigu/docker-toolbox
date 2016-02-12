@@ -2,12 +2,25 @@
 # Docker compose custom commands
 # ============================================================
 
-# Compose up in daemon mode
+
+# ------------------------------------------------------------
+# Docker compose up in daemon mode
+# ------------------------------------------------------------
 dc_upd(){
     sx docker-compose up -d
 }
 
+dc_upd_help(){
+    echo "Usage: dc upd"
+    echo
+    echo "Docker compose up in daemon mode."
+    echo
+}
+
+
+# ------------------------------------------------------------
 # Deep restart with images cleaning and pulling
+# ------------------------------------------------------------
 dc_init(){
     sx docker-compose stop
     sx docker-compose rm -f
@@ -15,14 +28,34 @@ dc_init(){
     sx docker-compose up -d
 }
 
+dc_init_help(){
+    echo "Usage: dc init"
+    echo
+    echo "Deep restart with images cleaning and pulling."
+    echo
+}
+
+
+# ------------------------------------------------------------
 # Deep restart with image cleaning
+# ------------------------------------------------------------
 dc_reset(){
     sx docker-compose stop
     sx docker-compose rm -f
     sx docker-compose up -d
 }
 
+dc_reset_help(){
+    echo "Usage: dc reset"
+    echo
+    echo "Deep restart with image cleaning."
+    echo
+}
+
+
+# ------------------------------------------------------------
 # Shows or changes compose app prefix
+# ------------------------------------------------------------
 dc_prefix(){
     if [ $# -eq 0 ]; then
         echo $COMPOSE_PROJECT_NAME
@@ -31,7 +64,17 @@ dc_prefix(){
     fi
 }
 
+dc_prefix_help(){
+    echo "Usage: dc prefix [NEW_PREFIX]"
+    echo
+    echo "Shows or changes (if NEW_PREFIX is specified) compose app prefix."
+    echo
+}
+
+
+# ------------------------------------------------------------
 # Show compose usage + information about custom commands
+# ------------------------------------------------------------
 dc_custom_usage(){
     echo
     echo "dc = docker-compose alias with enhancements."
@@ -47,9 +90,31 @@ dc_custom_usage(){
     return 1
 }
 
-# Docker compose alias plus new features for it
-dc(){
+
+# ------------------------------------------------------------
+# Help complements
+# ------------------------------------------------------------
+dc_help(){
     case "${1}" in
+        upd) dc_upd_help
+            ;;
+        init) dc_init_help
+            ;;
+        reset) dc_reset_help
+            ;;
+        prefix) dc_prefix_help
+            ;;
+        *) docker-compose help "$@"
+            ;;
+    esac
+}
+
+
+# ------------------------------------------------------------
+# Docker compose alias plus new features for it
+# ------------------------------------------------------------
+dc(){
+    case "$1" in
         upd) dc_upd
             ;;
         init) dc_init
@@ -58,6 +123,7 @@ dc(){
             ;;
         prefix) dc_prefix "$2"
             ;;
+        help) dc_help "$1"
         "") dc_custom_usage
             ;;
         *) sx docker-compose "$@"
