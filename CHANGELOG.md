@@ -9,7 +9,8 @@
 - New organisation of custom commands
 - ```vi``` is now set to ```vim```
 - Now dc is fully documented
-- Totak rework of docker custom command + autodoc
+- Total rework of docker custom command + autodoc
+- Didactic show of dk commands
 
 ## 1.10.0 (2016-02-06)
 - Update to docker 1.10.0
