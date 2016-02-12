@@ -39,6 +39,7 @@ RUN apk add --update zsh curl git perl openssh-client py-pip py-yaml \
 
 # Root default shell is now zsh
     && sed -ri 's;^(root:x:0:0:root:/root:)/bin/ash;\1/bin/zsh;' /etc/passwd \
+    && mkdir -p /root/.zshrc.d \
 
 # Final cleaning
     && rm -rf /var/cache/apk/* \
@@ -46,7 +47,7 @@ RUN apk add --update zsh curl git perl openssh-client py-pip py-yaml \
 
 # Zsh configuration file
 ADD ./zsh/.zshrc /root/
-ADD ./zsh/.zshrc.d /root/
+ADD ./zsh/.zshrc.d/* /root/.zshrc.d/
 
 # Docker entrypoint is zsh
 entrypoint ["/bin/zsh"]
