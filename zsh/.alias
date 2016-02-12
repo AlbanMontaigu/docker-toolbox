@@ -36,18 +36,24 @@ alias test-port="test_port"
 # Docker compose aliases
 # ------------------------------------------------------------
 
-# Docker compose alias plus new features for it
-dc(){
-    case ${1} in
-        upd) sx docker-compose up -d
-            ;;
-        init) sx docker-compose stop ; sx docker-compose rm -f ; sx docker-compose pull ; sx docker-compose up -d
-            ;;
-        reset) sx docker-compose stop ; sx docker-compose rm -f ; sx docker-compose up -d
-            ;;
-        *) sx docker-compose "$@"
-            ;;
-    esac
+# Compose up in daemon mode
+dc_upd(){
+    sx docker-compose up -d
+}
+
+# Deep restart with images cleaning and pulling
+dc_init(){
+    sx docker-compose stop
+    sx docker-compose rm -f
+    sx docker-compose pull
+    sx docker-compose up -d
+}
+
+# Deep restart with image cleaning
+dc_reset(){
+    sx docker-compose stop
+    sx docker-compose rm -f
+    sx docker-compose up -d
 }
 
 # Change compose app prefix
@@ -58,8 +64,22 @@ dc_prefix(){
         export COMPOSE_PROJECT_NAME=$1
     fi
 }
-alias dc-prefix="dc_prefix"
 
+# Docker compose alias plus new features for it
+dc(){
+    case ${1} in
+        upd) dc_upd
+            ;;
+        init) dc_init
+            ;;
+        reset) dc_reset
+            ;;
+        prefix) dc_prefix "$2"
+            ;;
+        *) sx docker-compose "$@"
+            ;;
+    esac
+}
 
 # ------------------------------------------------------------
 # Docker aliases

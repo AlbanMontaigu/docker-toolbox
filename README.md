@@ -62,14 +62,14 @@ All these commands will process the services you described in your ```docker-com
 
 - ```dc upd``` create start all your services in a daemon mode
 - ```dc init``` if requested stop and delete old containers en recreate then start them. **You should use this command the first time you want to start your sercices or when you want to go from scratch**
-- ```dc reset``` same as ```dc-init``` but without a pull so will be quicker than init
+- ```dc reset``` same as ```dc init``` but without a pull so will be quicker than init
 - ```dc start``` start all your containers *(if they have been created before !!)*
 - ```dc stop ``` stop all your containres *(if they are started before)*
 - ```dc restart ``` restart all your containres *(if they are started before)*
 - ```dc start [container-compose-yml-name]``` start a specific container
 - ```dc stop [container-compose-yml-name]``` stop a specific container **Do not stop all the containers if you work only with one !**
 - ```dc restart [container-compose-yml-name]``` restart a specific container **Do not stop all the containers if you work only with one !**
-- ```dc-prefix``` show current compose project name *(will be used as a prefix for containers names)*. Default is ```app``` and will produce containers names like ```app_myname_1```
+- ```dc prefix``` show current compose project name *(will be used as a prefix for containers names)*. Default is ```app``` and will produce containers names like ```app_myname_1```
 - ```dc-prefix [newprefix]``` change the project name for compose
 
 For all the **docker-compose** commands please refer to the [official documentation](https://docs.docker.com/compose/reference/).
