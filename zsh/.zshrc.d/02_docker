@@ -7,7 +7,7 @@
 # Show ip of a docker container
 # ------------------------------------------------------------
 dk_ip(){
-    docker inspect --format "{{ .NetworkSettings.IPAddress }}" $1
+    sx docker inspect --format "{{ .NetworkSettings.IPAddress }}" $1
 }
 
 dk_ip_help(){
@@ -21,7 +21,7 @@ dk_ip_help(){
 # Kill all running containers
 # ------------------------------------------------------------
 dk_killa(){
-    docker kill $(docker ps -q)
+    sx docker kill $(docker ps -q)
 }
 
 dk_killa_help(){
@@ -35,7 +35,7 @@ dk_killa_help(){
 # Delete all stopped containers
 # ------------------------------------------------------------
 dk_cleanc(){
-    printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)
+    sx printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)
 }
 
 dk_cleanc_help(){
@@ -49,7 +49,7 @@ dk_cleanc_help(){
 # Delete all untagged images
 # ------------------------------------------------------------
 dk_cleani(){
-    printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)
+    sx printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)
 }
 
 dk_cleani_help(){
@@ -63,7 +63,8 @@ dk_cleani_help(){
 # Delete all stopped containers and untagged images
 # ------------------------------------------------------------
 dk_clean(){
-    dk-cleanc || true && dk-cleani
+    dk-cleanc || true 
+    dk-cleani
 }
 
 dk_clean_help(){
@@ -168,7 +169,7 @@ dk_vi_help(){
 # ------------------------------------------------------------
 dk_logsf(){
     if [ $# -eq 1 ]; then
-        docker logs -f $1
+        sx docker logs -f $1
     else
         dk_logsf_help
     fi
