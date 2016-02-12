@@ -7,7 +7,7 @@
 # Show ip of a docker container
 # ------------------------------------------------------------
 dk_ip(){
-    sx docker inspect --format "{{ .NetworkSettings.IPAddress }}" $1
+    sx docker inspect --format \"{{ .NetworkSettings.IPAddress }}\" $1
 }
 
 dk_ip_help(){
