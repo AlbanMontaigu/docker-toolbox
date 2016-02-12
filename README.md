@@ -60,9 +60,9 @@ For all the **docker** commands please refer to the [official documentation](htt
 
 All these commands will process the services you described in your ```docker-compose.yml``` file.
 
-- ```dc-up``` create start all your services in a daemon mode
-- ```dc-init``` if requested stop and delete old containers en recreate then start them. **You should use this command the first time you want to start your sercices or when you want to go from scratch**
-- ```dc-reset``` same as ```dc-init``` but without a pull so will be quicker than init
+- ```dc upd``` create start all your services in a daemon mode
+- ```dc init``` if requested stop and delete old containers en recreate then start them. **You should use this command the first time you want to start your sercices or when you want to go from scratch**
+- ```dc reset``` same as ```dc-init``` but without a pull so will be quicker than init
 - ```dc start``` start all your containers *(if they have been created before !!)*
 - ```dc stop ``` stop all your containres *(if they are started before)*
 - ```dc restart ``` restart all your containres *(if they are started before)*
