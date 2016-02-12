@@ -65,7 +65,13 @@ alias dk-clean='dk-cleanc || true && dk-cleani'
 
 # Get a ssh inside a container
 dk_sh() {
-    docker exec -ti $1 /bin/sh
+    if [ $# -eq 1 ]; then
+        docker exec -ti $1 /bin/sh
+    else
+        echo "Usage: dk-sh CONTAINER"
+        echo ""
+        echo "Starts a shell inside a container."
+    fi
 }
 alias dk-sh='dk_sh'
 
@@ -83,22 +89,39 @@ alias dk-sh-img='dk_sh_img'
 
 # See files tree in a container
 dk_ls() {
-    docker exec -ti $1 /bin/ls -l $2
+    if [ $# -eq 2 ]; then
+        docker exec -ti $1 /bin/ls -l $2
+    else
+        echo "Usage: dk-ls CONTAINER PATH"
+        echo ""
+        echo "Outputs directory content from inside a container."
+    fi
 }
 alias dk-ls='dk_ls'
 
 # See files content inside a container
 dk_cat() {
-    docker exec -ti $1 /bin/cat $2
+    if [ $# -eq 2 ]; then
+        docker exec -ti $1 /bin/cat $2
+    else
+        echo "Usage: dk-cat CONTAINER PATH"
+        echo ""
+        echo "Outputs file content from inside a container."
+    fi
 }
 alias dk-cat='dk_cat'
 
 # Edit files content inside a container
 dk_vi() {
-    docker exec -ti $1 /bin/vi $2
+    if [ $# -eq 2 ]; then
+        docker exec -ti $1 /bin/vi $2
+    else
+        echo "Usage: dk-vi CONTAINER PATH"
+        echo ""
+        echo "Edits file content from inside a container."
+    fi
 }
 alias dk-vi='dk_vi'
 
 # Misc
 alias dk-flogs="docker logs -f $1"
-
