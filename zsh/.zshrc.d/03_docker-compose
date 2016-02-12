@@ -40,7 +40,7 @@ dc_custom_usage(){
     echo
     echo "Custom dc commands:"
     echo "  upd                Compose up in daemon mode"
-    echo "  init               Deep restart with images cleaning and pulling"
+    echo "  init               Deep restart with image cleaning and pulling"
     echo "  reset              Deep restart with image cleaning"
     echo "  prefix             Shows or changes compose app prefix"
     echo
