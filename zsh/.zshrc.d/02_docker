@@ -35,7 +35,7 @@ dk_killa_help(){
 # Delete all stopped containers
 # ------------------------------------------------------------
 dk_cleanc(){
-    sx printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)
+    sx docker rm $(docker ps -a -q)
 }
 
 dk_cleanc_help(){
@@ -49,7 +49,7 @@ dk_cleanc_help(){
 # Delete all untagged images
 # ------------------------------------------------------------
 dk_cleani(){
-    sx printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)
+    sx docker rmi $(docker images -q -f dangling=true)
 }
 
 dk_cleani_help(){
