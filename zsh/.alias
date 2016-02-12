@@ -56,7 +56,7 @@ dc_reset(){
     sx docker-compose up -d
 }
 
-# Change compose app prefix
+# Shows or changes compose app prefix
 dc_prefix(){
     if [ $# -eq 0 ]; then
         echo $COMPOSE_PROJECT_NAME
@@ -65,9 +65,24 @@ dc_prefix(){
     fi
 }
 
+# Show compose usage + information about custom commands
+dc_custom_usage(){
+    echo
+    echo "dc = docker-compose alias with enhancements"
+    echo
+    docker-compose
+    echo
+    echo "Custom dc commands:"
+    echo "  upd                Compose up in daemon mode"
+    echo "  init               Deep restart with images cleaning and pulling"
+    echo "  reset              Deep restart with image cleaning"
+    echo "  prefix             Shows or changes compose app prefix"
+    echo
+}
+
 # Docker compose alias plus new features for it
 dc(){
-    case ${1} in
+    case "${1}" in
         upd) dc_upd
             ;;
         init) dc_init
@@ -75,6 +90,8 @@ dc(){
         reset) dc_reset
             ;;
         prefix) dc_prefix "$2"
+            ;;
+        "") dc_custom_usage
             ;;
         *) sx docker-compose "$@"
             ;;
