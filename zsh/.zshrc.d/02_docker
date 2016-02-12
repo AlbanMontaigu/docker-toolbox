@@ -2,83 +2,276 @@
 # Docker custom commands
 # ============================================================
 
-# Docker cmd shortener
-alias dk="docker"
 
+# ------------------------------------------------------------
 # Show ip of a docker container
-alias dk-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1"
+# ------------------------------------------------------------
+dk_ip(){
+    docker inspect --format "{{ .NetworkSettings.IPAddress }}" $1
+}
 
-# Kill all running containers.
-alias dk-killall='docker kill $(docker ps -q)'
+dk_ip_help(){
+    echo "Usage: dk ip CONTAINER"
+    echo ""
+    echo "Show ip of a docker container."
+}
 
-# Delete all stopped containers.
-alias dk-cleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
 
-# Delete all untagged images.
-alias dk-cleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+# ------------------------------------------------------------
+# Kill all running containers
+# ------------------------------------------------------------
+dk_killa(){
+    docker kill $(docker ps -q)
+}
 
-# Delete all stopped containers and untagged images.
-alias dk-clean='dk-cleanc || true && dk-cleani'
+dk_killa_help(){
+    echo "Usage: dk killa"
+    echo ""
+    echo "Kill all running containers."
+}
 
-# Get a ssh inside a container
-dk_sh() {
+
+# ------------------------------------------------------------
+# Delete all stopped containers
+# ------------------------------------------------------------
+dk_cleanc(){
+    printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)
+}
+
+dk_cleanc_help(){
+    echo "Usage: dk cleanc"
+    echo ""
+    echo "Delete all stopped containers."
+}
+
+
+# ------------------------------------------------------------
+# Delete all untagged images
+# ------------------------------------------------------------
+dk_cleani(){
+    printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)
+}
+
+dk_cleani_help(){
+    echo "Usage: dk cleani"
+    echo ""
+    echo "Delete all untagged images."
+}
+
+
+# ------------------------------------------------------------
+# Delete all stopped containers and untagged images
+# ------------------------------------------------------------
+dk_clean(){
+    dk-cleanc || true && dk-cleani
+}
+
+dk_clean_help(){
+    echo "Usage: dk clean"
+    echo ""
+    echo "Delete all stopped containers and untagged images."
+}
+
+
+# ------------------------------------------------------------
+# Get a shell inside a container
+# ------------------------------------------------------------
+dk_shc() {
     if [ $# -eq 1 ]; then
         sx docker exec -ti $1 /bin/sh
     else
-        echo "Usage: dk-sh CONTAINER"
-        echo ""
-        echo "Starts a shell inside a container."
+        dk_shc_help
     fi
 }
-alias dk-sh='dk_sh'
 
+dk_shc_help(){
+    echo "Usage: dk shc CONTAINER"
+    echo ""
+    echo "Starts a shell inside a container."
+}
+
+
+# ------------------------------------------------------------
 # Get a shell in a container started from the specified image
-dk_sh_img() {
+# ------------------------------------------------------------
+dk_shi() {
     if [ $# -eq 1 ]; then
         sx docker run -it --rm --entrypoint="/bin/sh" $1
     else
-        echo "Usage: dk-sh-img IMAGE"
-        echo ""
-        echo "Runs an image as a container and start a shell inside."
+        dk_shi_help
     fi
 }
-alias dk-sh-img='dk_sh_img'
 
+dk_shi_help(){
+    echo "Usage: dk shi IMAGE"
+    echo ""
+    echo "Runs an image as a container and start a shell inside."
+}
+
+
+# ------------------------------------------------------------
 # See files tree in a container
+# ------------------------------------------------------------
 dk_ls() {
     if [ $# -eq 2 ]; then
         sx docker exec -ti $1 /bin/ls -l $2
     else
-        echo "Usage: dk-ls CONTAINER PATH"
-        echo ""
-        echo "Outputs directory content from inside a container."
+        dk_ls_help
     fi
 }
-alias dk-ls='dk_ls'
 
+dk_ls_help(){
+    echo "Usage: dk ls CONTAINER PATH"
+    echo ""
+    echo "Outputs directory content from inside a container."
+}
+
+
+# ------------------------------------------------------------
 # See files content inside a container
+# ------------------------------------------------------------
 dk_cat() {
     if [ $# -eq 2 ]; then
         sx docker exec -ti $1 /bin/cat $2
     else
-        echo "Usage: dk-cat CONTAINER PATH"
-        echo ""
-        echo "Outputs file content from inside a container."
+        dk_cat_help
     fi
 }
-alias dk-cat='dk_cat'
 
+dk_cat_help(){
+    echo "Usage: dk cat CONTAINER PATH"
+    echo ""
+    echo "Outputs file content from inside a container."
+}
+
+
+# ------------------------------------------------------------
 # Edit files content inside a container
+# ------------------------------------------------------------
 dk_vi() {
     if [ $# -eq 2 ]; then
         sx docker exec -ti $1 /bin/vi $2
     else
-        echo "Usage: dk-vi CONTAINER PATH"
-        echo ""
-        echo "Edits file content from inside a container."
+        dk_vi_help
     fi
 }
-alias dk-vi='dk_vi'
 
-# Misc
-alias dk-flogs="docker logs -f $1"
+dk_vi_help(){
+    echo "Usage: dk vi CONTAINER PATH"
+    echo ""
+    echo "Edits file content from inside a container."
+}
+
+
+# ------------------------------------------------------------
+# Follow logs of a container
+# ------------------------------------------------------------
+dk_logsf(){
+    if [ $# -eq 1 ]; then
+        docker logs -f $1
+    else
+        dk_logsf_help
+    fi
+}
+
+dk_logsf_help(){
+    echo "Usage: dk logsf CONTAINER"
+    echo ""
+    echo "Follow logs of a container."
+}
+
+
+# ------------------------------------------------------------
+# Show docker usage + information about custom commands
+# ------------------------------------------------------------
+dk_custom_usage(){
+    echo
+    echo "dk = docker alias with enhancements."
+    echo
+    docker | sed 's/docker/dk/g'
+    echo
+    echo "Custom dk commands:"
+    echo "    ip        Show ip of a docker container"
+    echo "    killa     Kill all running containers"
+    echo "    cleanc    Delete all stopped containers"
+    echo "    cleani    Delete all untagged images"
+    echo "    clean     Delete all stopped containers and untagged images"
+    echo "    shc       Get a shell inside a container"
+    echo "    shi       Get a shell in a container started from the specified image"
+    echo "    ls        See files tree in a container"
+    echo "    cat       See files content inside a container"
+    echo "    vi        Edit files content inside a container"
+    echo "    logsf     Follow logs of a container"
+}
+
+
+# ------------------------------------------------------------
+# Help complements
+# ------------------------------------------------------------
+dk_help(){
+    case "$1" in
+        ip) dk_ip_help
+            ;;
+        killa) dk_killa_help
+            ;;
+        cleanc) dk_cleanc_help
+            ;;
+        cleani) dk_cleani_help
+            ;;
+        clean) dk_clean_help
+            ;;
+        shc) dk_shc_help
+            ;;
+        shi) dk_shi_help
+            ;;
+        ls) dk_ls_help
+            ;;
+        cat) dk_cat_help
+            ;;
+        vi) dk_vi_help
+            ;;
+        logsf) dk_logsf_help
+            ;;
+        "") docker help
+            ;;
+        *) docker help "$@"
+            ;;
+    esac
+}
+
+
+# ------------------------------------------------------------
+# Docker command plus new features for it
+# ------------------------------------------------------------
+dk(){
+    case "$1" in
+        ip) dk_ip
+            ;;
+        killa) dk_killa
+            ;;
+        cleanc) dk_cleanc
+            ;;
+        cleani) dk_cleani
+            ;;
+        clean) dk_clean
+            ;;
+        shc) dk_shc
+            ;;
+        shi) dk_shi
+            ;;
+        ls) dk_ls
+            ;;
+        cat) dk_cat
+            ;;
+        vi) dk_vi
+            ;;
+        logsf) dk_logsf
+            ;;
+        help) dk_help "$2"
+            ;;
+        "") dk_custom_usage
+            ;;
+        *) sx docker "$@"
+            ;;
+    esac
+}
