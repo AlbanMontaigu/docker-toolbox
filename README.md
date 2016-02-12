@@ -28,7 +28,7 @@ $ docker run -ti --rm \
 
 And more...
 
-## Commands availables in your box
+## Commands available in your box
 
 ### Misc commands
 
