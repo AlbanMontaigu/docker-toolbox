@@ -58,7 +58,12 @@ dk_cleanc_help(){
 # Delete all untagged images
 # ------------------------------------------------------------
 dk_cleani(){
-    sx docker rmi $(docker images -q -f dangling=true)
+    untagged_images="$(docker images -q -f dangling=true)"
+    if [[ "$untagged_images" == "" ]] ; then
+        echo "No untagged image to clean"
+        return 0
+    fi
+    sx docker rmi "$untagged_images"
 }
 
 dk_cleani_help(){
