@@ -256,7 +256,7 @@ dk(){
         return 0
     fi
     case "$1" in
-        ip) dk_ip
+        ip) dk_ip "$2"
             ;;
         killa) dk_killa
             ;;
@@ -266,17 +266,17 @@ dk(){
             ;;
         clean) dk_clean
             ;;
-        shc) dk_shc
+        shc) dk_shc "$2"
             ;;
-        shi) dk_shi
+        shi) dk_shi "$2"
             ;;
-        ls) dk_ls
+        ls) dk_ls "$2" "$3"
             ;;
-        cat) dk_cat
+        cat) dk_cat "$2" "$3"
             ;;
-        vi) dk_vi
+        vi) dk_vi "$2" "$3"
             ;;
-        logsf) dk_logsf
+        logsf) dk_logsf "$2"
             ;;
         "") dk_custom_usage
             ;;
