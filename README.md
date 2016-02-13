@@ -1,6 +1,6 @@
-# docker-devbox
+# docker-toolbox
 
-My dev box Docker image based on [alpine](https://hub.docker.com/_/alpine/) image.
+My toobox docker image based on [alpine](https://hub.docker.com/_/alpine/) image.
 
 ## Usage
 
@@ -8,9 +8,9 @@ My dev box Docker image based on [alpine](https://hub.docker.com/_/alpine/) imag
 $ docker run -ti --rm \
              -v "$(pwd)":/workspace \
              -v /var/run/docker.sock:/var/run/docker.sock \
-             -h docker-devbox \
+             -h docker-toolbox \
              -e COMPOSE_PROJECT_NAME="app" \
-             amontaigu/docker-devbox
+             amontaigu/docker-toolbox
 ```
 
 ## Key softwares available in your box

@@ -1,6 +1,6 @@
 .PHONY: build tests all
 
-DOCKER_IMAGE_NAME=amontaigu/docker-devbox
+DOCKER_IMAGE_NAME=amontaigu/docker-toolbox
 DOCKER_VERSION="1.10.1"
 DOCKER_COMPOSE_VERSION="1.6.0"
 
@@ -13,7 +13,7 @@ run:
 	docker run -ti --rm \
 			-v /var/run/docker.sock:/var/run/docker.sock \
 			-v $(CURDIR):/workspace \
-			-h docker-devbox \
+			-h docker-toolbox \
 			-e COMPOSE_PROJECT_NAME="app" \
 			$(DOCKER_IMAGE_NAME)
 

@@ -1,6 +1,6 @@
 # ==================================================================================================
 # 
-# DOCKER DEVBOX
+# DOCKER TOOLBOX
 #
 # A friendly light docker image to provide tools and configuration to
 # work in a confortable manner with docker
