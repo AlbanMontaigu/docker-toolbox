@@ -12,6 +12,7 @@
 - Total rework of docker custom command + autodoc
 - Didactic show of dk commands
 - More efficient ```dk cleanc```
+- Improved ```dk cleani```
 
 ## 1.10.0 (2016-02-06)
 - Update to docker 1.10.0
