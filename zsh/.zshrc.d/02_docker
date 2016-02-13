@@ -39,7 +39,12 @@ dk_killa_help(){
 # Delete all stopped containers
 # ------------------------------------------------------------
 dk_cleanc(){
-    sx docker rm $(docker ps -a -q)
+    exited_containers="$(docker ps -a -q -f status=exited)"
+    if [[ "$exited_containers" == "" ]] ; then
+        echo "No exited container to clean"
+        return 0
+    fi
+    sx docker rm "$exited_containers"
 }
 
 dk_cleanc_help(){
