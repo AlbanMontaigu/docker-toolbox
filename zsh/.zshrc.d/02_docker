@@ -67,8 +67,8 @@ dk_cleani_help(){
 # Delete all stopped containers and untagged images
 # ------------------------------------------------------------
 dk_clean(){
-    dk-cleanc || true 
-    dk-cleani
+    dk_cleanc|| true 
+    dk_cleani
 }
 
 dk_clean_help(){
