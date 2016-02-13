@@ -57,10 +57,10 @@ dc_reset_help(){
 # Shows or changes compose app prefix
 # ------------------------------------------------------------
 dc_prefix(){
-    if [ $# -eq 0 ]; then
+    if [[ "$1" == "" ]] ; then
         echo $COMPOSE_PROJECT_NAME
     else
-        export COMPOSE_PROJECT_NAME=$1
+        export COMPOSE_PROJECT_NAME="$1"
     fi
 }
 
