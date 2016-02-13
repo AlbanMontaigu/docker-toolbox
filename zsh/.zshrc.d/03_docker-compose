@@ -19,7 +19,7 @@ dc_upd_help(){
 
 
 # ------------------------------------------------------------
-# Deep restart with images cleaning and pulling
+# Deep restart with containers cleaning and images pulling
 # ------------------------------------------------------------
 dc_init(){
     sx docker-compose stop
@@ -31,13 +31,13 @@ dc_init(){
 dc_init_help(){
     echo "Usage: dc init"
     echo
-    echo "Deep restart with images cleaning and pulling."
+    echo "Deep restart with containers cleaning and images pulling."
     return 1
 }
 
 
 # ------------------------------------------------------------
-# Deep restart with image cleaning
+# Deep restart with containers cleaning
 # ------------------------------------------------------------
 dc_reset(){
     sx docker-compose stop
@@ -48,7 +48,7 @@ dc_reset(){
 dc_reset_help(){
     echo "Usage: dc reset"
     echo
-    echo "Deep restart with image cleaning."
+    echo "Deep restart with containers cleaning."
     return 1
 }
 
@@ -83,8 +83,8 @@ dc_custom_usage(){
     echo
     echo "Custom dc commands:"
     echo "  upd                Compose up in daemon mode"
-    echo "  init               Deep restart with image cleaning and pulling"
-    echo "  reset              Deep restart with image cleaning"
+    echo "  init               Deep restart with containers cleaning and images pulling"
+    echo "  reset              Deep restart with containers cleaning"
     echo "  prefix             Shows or changes compose app prefix"
     return 1
 }
