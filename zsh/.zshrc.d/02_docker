@@ -261,7 +261,7 @@ dk_help(){
 # Docker command plus new features for it
 # ------------------------------------------------------------
 dk(){
-    if [ "${@: -1}" = "--help" ] ; then
+    if [[ "${@: -1}" == "--help" ]] ; then
         dk_help "$1"
         return 0
     fi
