@@ -14,8 +14,17 @@ show_exec() {
 alias sx="show_exec"
 
 # Show dir facility
-alias ls='ls --color=tty'
+alias ls='ls -p --color=tty'
 alias ll='ls -al'
+
+# Human readable
+alias df='df -h'
+alias du='du -h'
+
+# Avoid errors... use -f to skip confirmation.
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
 
 # Tool to test ports
 test_port(){
