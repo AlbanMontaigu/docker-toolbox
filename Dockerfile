@@ -23,7 +23,7 @@ USER root
 WORKDIR /root
 
 # Environment configuration
-ENV DOCKER_VERSION="1.10.1" \
+ENV DOCKER_VERSION="1.10.2-rc1" \
     DOCKER_COMPOSE_VERSION="1.6.0"
 
 # System preparation and setup
