@@ -1,6 +1,7 @@
 
 ## 1.10.2-rc1 (2016-02-20)
 - Update to docker 1.10.2-rc1
+- ```dk host [HOST_ID]``` command added
 
 ## 1.10.1 (2016-02-12)
 - Update to docker 1.10.1

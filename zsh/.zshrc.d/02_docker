@@ -4,6 +4,46 @@
 
 
 # ------------------------------------------------------------
+# Docker host management
+#
+# NOTE : Enables to switch to local or remote host
+# ------------------------------------------------------------
+dk_host(){
+    if [ $# -gt 1 ]; then
+        dk_host_help
+    elif [[ "$1" == "" ]]; then
+        echo "DOCKER_HOST_ID=$DOCKER_HOST_ID"
+        echo "DOCKER_HOST=$DOCKER_HOST"
+    else
+        dk_host_change "$1"
+    fi
+}
+
+# Help related to the main dk_host command
+dk_host_help(){
+    echo "Usage: dk host [HOST_ID]"
+    echo ""
+    echo "Changes or shows where the docker client is connected."
+}
+
+# Changes docker host with specified param if related definition present
+dk_host_change(){
+    DK_HOST_FUNC="dk_host_$1"
+    if type $DK_HOST_FUNC | grep -i function > /dev/null; then
+        eval $DK_HOST_FUNC
+    else
+        echo "Docker host definition not found for $1 \!"
+    fi
+}
+
+# Host by default = local
+dk_host_local() {
+    export DOCKER_HOST_ID="local"
+    export DOCKER_HOST="unix:///var/run/docker.sock"
+}
+
+
+# ------------------------------------------------------------
 # Show ip of a docker container
 # ------------------------------------------------------------
 dk_ip(){
@@ -247,6 +287,8 @@ dk_help(){
             ;;
         logsf) dk_logsf_help
             ;;
+        host) dk_host_help
+            ;;
         "--help") docker
             ;;
         "") docker
@@ -287,6 +329,8 @@ dk(){
         vi) dk_vi "$2" "$3"
             ;;
         logsf) dk_logsf "$2"
+            ;;
+        host) dk_host "$2"
             ;;
         "") dk_custom_usage
             ;;
