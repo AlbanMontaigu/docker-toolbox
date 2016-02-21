@@ -13,7 +13,6 @@ dk_host(){
         dk_host_help
     elif [[ "$1" == "" ]]; then
         echo "DOCKER_HOST_ID=$DOCKER_HOST_ID"
-        echo "DOCKER_HOST=$DOCKER_HOST"
     else
         dk_host_change "$1"
     fi
@@ -26,20 +25,61 @@ dk_host_help(){
     echo "Changes or shows where the docker client is connected."
 }
 
-# Changes docker host with specified param if related definition present
-dk_host_change(){
+# Checks if requested host is defined
+dk_host_check(){
     DK_HOST_FUNC="dk_host_$1"
     if type $DK_HOST_FUNC | grep -i function > /dev/null; then
-        eval $DK_HOST_FUNC
+        return 0 # OK
     else
-        echo "Docker host definition not found for $1 \!"
+        return 1 # KO
     fi
 }
 
-# Host by default = local
-dk_host_local() {
-    export DOCKER_HOST_ID="local"
-    export DOCKER_HOST="unix:///var/run/docker.sock"
+# Changes docker host with specified param if related definition present
+dk_host_change(){
+
+    # Default DOCKER_HOST_ID
+    NEW_DOCKER_HOST_ID="local"
+    if [ $# -eq 1 ]; then
+        NEW_DOCKER_HOST_ID="$1"
+    fi
+
+    # Check and do the change
+    if [ dk_host_check "$NEW_DOCKER_HOST_ID" -eq 0 ]; then
+        export DOCKER_HOST_ID="$NEW_DOCKER_HOST_ID"
+        export http_proxy="$(dk_host_current_http_proxy)" \
+        export HTTP_PROXY="$(dk_host_current_http_proxy)" \
+        export https_proxy="$(dk_host_current_https_proxy)" \
+        export HTTPS_PROXY="$(dk_host_current_https_proxy)" \
+        export no_proxy="$(dk_host_current_no_proxy)" \
+        export NO_PROXY="$(dk_host_current_no_proxy)" \
+        export DOCKER_HOST="$(dk_host_current)" \
+        echo "[INFO] Docker host changed to DOCKER_HOST_ID=$1"
+    else
+        echo "[ERROR] Docker host definition not found for DOCKER_HOST_ID=$1 \!"
+    fi
+}
+
+# Current DOCKER_HOST_ID with fallback to local if not defined
+dk_host_id(){
+    # No param or current conf
+    if [ -z "$DOCKER_HOST_ID" ]; then
+        echo "local" # Default
+    else
+        echo "$DOCKER_HOST_ID"
+    fi
+}
+dk_host_current(){
+    eval "dk_host_$(dk_host_id)"
+}
+dk_host_current_http_proxy(){
+    eval "dk_host_$(dk_host_id)_http_proxy"
+}
+dk_host_current_https_proxy(){
+    eval "dk_host_$(dk_host_id)_https_proxy"
+}
+dk_host_current_no_proxy(){
+    eval "dk_host_$(dk_host_id)_no_proxy"
 }
 
 
