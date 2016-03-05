@@ -1,6 +1,6 @@
 
-## 1.10.2-rc1 (2016-02-20)
-- Update to docker 1.10.2-rc1
+## 1.10.2 (2016-03-05)
+- Update to docker 1.10.2
 - ```dk host [HOST_ID]``` command added
 - ```ia *``` commands added to manage remote IaaS management
 - ```dk host``` command added to manage local or remote docker host
