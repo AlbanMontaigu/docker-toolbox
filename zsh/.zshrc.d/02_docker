@@ -297,6 +297,7 @@ dk_custom_usage(){
     echo "    cat       See files content inside a container"
     echo "    vi        Edit files content inside a container"
     echo "    logsf     Follow logs of a container"
+    echo "    host      Changes or shows where the docker client is connected"
 }
 
 
