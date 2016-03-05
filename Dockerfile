@@ -24,7 +24,7 @@ WORKDIR /root
 
 # Environment configuration
 ENV DOCKER_VERSION="1.10.2" \
-    DOCKER_COMPOSE_VERSION="1.6.0"
+    DOCKER_COMPOSE_VERSION="1.6.2"
 
 # System preparation and setup
 RUN apk add --update zsh curl git perl openssh-client py-pip py-yaml \
