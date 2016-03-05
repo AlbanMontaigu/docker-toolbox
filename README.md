@@ -1,4 +1,4 @@
-# docker-toolbox
+# docker-toolbox [![Circle CI](https://circleci.com/gh/AlbanMontaigu/docker-toolbox.svg?style=shield)](https://circleci.com/gh/AlbanMontaigu/docker-toolbox)
 
 My toobox docker image based on [alpine](https://hub.docker.com/_/alpine/) image.
 
