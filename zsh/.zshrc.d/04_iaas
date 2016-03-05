@@ -23,9 +23,9 @@ ia_tf(){
                     -v /vagrant:/vagrant \
                     -v /vagrant/iaas/terraform/$DOCKER_HOST_ID:/data \
                     -v /vagrant/iaas/terraform/common:/common \
-                    -e "http_proxy=dk_host_current_http_proxy" \
-                    -e "https_proxy=dk_host_current_https_proxy" \
-                    -e "no_proxy=dk_host_current_no_proxy" \
+                    -e "http_proxy=$(dk_host_current_http_proxy)" \
+                    -e "https_proxy=$(dk_host_current_https_proxy)" \
+                    -e "no_proxy=$(dk_host_current_no_proxy)" \
                     amontaigu/terraform "$@"
 }
 
