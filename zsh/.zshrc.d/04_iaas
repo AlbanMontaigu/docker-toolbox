@@ -44,13 +44,13 @@ ia_tf_check(){
 
     # Common conf dir requested
     if [ ! -d $TF_COMMON_DIR ] ; then
-        echo "[WARN] $TF_COMMON_DIR not found \!"
+        echo "[WARN] $TF_COMMON_DIR not found"
         return 1
     fi
 
     # Specific conf dir requested
     if [ ! -d $TF_DIR ] ; then
-        echo "[WARN] $TF_DIR not found \!"
+        echo "[WARN] $TF_DIR not found"
         return 2
     fi
 
