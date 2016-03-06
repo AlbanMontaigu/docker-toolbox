@@ -12,7 +12,7 @@ dk_host(){
     if [ $# -gt 1 ]; then
         dk_host_help
     elif [[ "$1" == "" ]]; then
-        echo "DOCKER_HOST_ID=$DOCKER_HOST_ID"
+        echo "DOCKER_HOST_ID=$(dk_host_id)"
     else
         dk_host_change "$1"
     fi
