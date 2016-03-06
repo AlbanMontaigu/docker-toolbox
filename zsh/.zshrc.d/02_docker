@@ -45,18 +45,19 @@ dk_host_change(){
     fi
 
     # Check and do the change
-    if [ dk_host_check "$NEW_DOCKER_HOST_ID" -eq 0 ]; then
+    dk_host_check "$NEW_DOCKER_HOST_ID"
+    if [ $? -eq 0 ]; then
         export DOCKER_HOST_ID="$NEW_DOCKER_HOST_ID"
-        export http_proxy="$(dk_host_current_http_proxy)" \
-        export HTTP_PROXY="$(dk_host_current_http_proxy)" \
-        export https_proxy="$(dk_host_current_https_proxy)" \
-        export HTTPS_PROXY="$(dk_host_current_https_proxy)" \
-        export no_proxy="$(dk_host_current_no_proxy)" \
-        export NO_PROXY="$(dk_host_current_no_proxy)" \
-        export DOCKER_HOST="$(dk_host_current)" \
+        export http_proxy="$(dk_host_current_http_proxy)"
+        export HTTP_PROXY="$(dk_host_current_http_proxy)"
+        export https_proxy="$(dk_host_current_https_proxy)"
+        export HTTPS_PROXY="$(dk_host_current_https_proxy)"
+        export no_proxy="$(dk_host_current_no_proxy)"
+        export NO_PROXY="$(dk_host_current_no_proxy)"
+        export DOCKER_HOST="$(dk_host_current)"
         echo "[INFO] Docker host changed to DOCKER_HOST_ID=$1"
     else
-        echo "[ERROR] Docker host definition not found for DOCKER_HOST_ID=$1 \!"
+        echo "[ERROR] Docker host definition not found for DOCKER_HOST_ID=$1"
     fi
 }
 
