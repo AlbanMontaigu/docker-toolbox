@@ -7,12 +7,6 @@
 # Global TERRAFORM sub command for IaaS management
 ia_tf(){
 
-    # Check param
-    if [ $# -ne 1 ]; then
-        ia_tf_help
-        return 1
-    fi
-
     # Check requirements
     if [ ia_tf_check -gt 0 ] ; then
         return 2
