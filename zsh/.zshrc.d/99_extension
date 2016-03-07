@@ -33,7 +33,7 @@ fi
 
 
 # ------------------------------------------------------------
-# Loading extension
+# Getting extension files
 # ------------------------------------------------------------
 echo "== Getting extension files... [$(date)]" >> $LOGFILE 2>&1
 rm -rvf $DKTB_EXTENSION_DIR >> $LOGFILE 2>&1
@@ -43,3 +43,9 @@ cd $DKTB_EXTENSION_DIR
 git checkout $DKTB_EXTENSION_VERSION >> $LOGFILE 2>&1
 chmod -R 777 ${DKTB_EXTENSION_DIR} >> $LOGFILE 2>&1
 cd $CURRENT_DIR
+
+
+# ------------------------------------------------------------
+# Init extension
+# ------------------------------------------------------------
+source $DKTB_EXTENSION_DIR/init.sh
