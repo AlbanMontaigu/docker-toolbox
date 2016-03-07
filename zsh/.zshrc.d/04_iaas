@@ -4,7 +4,9 @@
 # NOTE : tool to manage IaaS instances is TERRAFORM
 # ============================================================
 
+# ------------------------------------------------------------
 # Global TERRAFORM sub command for IaaS management
+# ------------------------------------------------------------
 ia_tf(){
 
     # Check requirements
@@ -54,6 +56,33 @@ ia_tf_check(){
 
 
 # ------------------------------------------------------------
+# Additional commands to connect and manage IaaS instance
+# ------------------------------------------------------------
+
+# Get the ip of the current iaas instance
+ia_ip(){
+    ia_tf show | grep -oE '((1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])'
+}
+
+ia_ip_help(){
+    echo "Usage: ia ip"
+    echo ""
+    echo "Show ip of the current instance (depending dk host) on the iaas"
+}
+
+# Ssh into IaaS instance with default key and current ip
+ia_ssh(){
+    ssh -o StrictHostKeyChecking=no cloud@\$(ia_ip)
+}
+
+ia_ssh_help(){
+    echo "Usage: ia ssh"
+    echo ""
+    echo "Ssh inside the current IaaS instance (depending dk host) with default keys"
+}
+
+
+# ------------------------------------------------------------
 # Show ia usage + information about commands
 # ------------------------------------------------------------
 ia_custom_usage(){
@@ -64,8 +93,9 @@ ia_custom_usage(){
     echo
     echo "Commands:"
     echo "    tf        All TERRAFORM commands"
-    echo "    ip        Show ip of the instance on the iaas"
-    echo "    ssh       Ssh inside the IaaS instance"
+    echo "    ip        Show ip of the current instance (depending dk host) on the iaas"
+    echo "    ssh       Ssh inside the current IaaS instance (depending dk host) with default keys"
+    echo "    help      Get hep for the specified command"
 }
 
 
@@ -93,9 +123,11 @@ ia(){
             ;;
         ip) ia_ip
             ;;
-        ssh) ia_help "$2"
+        ssh) ia_ssh "$2"
             ;;
-        "") ia_custom_usage
+        help) ia_help "$2"
+            ;;
+        *) ia_custom_usage
             ;;
     esac
 }
