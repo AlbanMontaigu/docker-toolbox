@@ -1,0 +1,41 @@
+
+# ============================================================
+# Import extensions not included in the base image
+#
+# NOTE: prefix the files with a number to manage order
+# ============================================================
+
+
+# ------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------
+
+# Global
+export DKTB_EXTENSION_DIR="/opt/doker-toolbox-extension"
+
+# Local
+LOGFILE="/var/log/doker-toolbox-extension.log"
+
+
+# ------------------------------------------------------------
+# This is optional so if no env var, no extension
+# ------------------------------------------------------------
+if ([[ "$DKTB_EXTENSION_REPO" == "" ]] || [[ "$DKTB_EXTENSION_VERSION" == "" ]]); then
+    echo "== No docker doker-toolbox-extension configured, skiping... [$(date)]" >> $LOGFILE 2>&1
+    return 0
+else
+    echo "== Docker toolbox extension detected... [$(date)]" >> $LOGFILE 2>&1
+    echo "     DKTB_EXTENSION_REPO=$DKTB_EXTENSION_REPO" >> $LOGFILE 2>&1
+    echo "     DKTB_EXTENSION_VERSION=$DKTB_EXTENSION_VERSION" >> $LOGFILE 2>&1
+fi
+
+
+# ------------------------------------------------------------
+# Loading extension
+# ------------------------------------------------------------
+echo "== Getting extension files... [$(date)]" >> $LOGFILE 2>&1
+sudo rm -rvf $DKTB_EXTENSION_DIR >> $LOGFILE 2>&1
+sudo git clone $DKTB_EXTENSION_REPO $DKTB_EXTENSION_DIR >> $LOGFILE 2>&1
+cd $DKTB_EXTENSION_DIR
+sudo git checkout $DKTB_EXTENSION_VERSION >> $LOGFILE 2>&1
+sudo chmod -R 777 ${DKTB_EXTENSION_DIR} >> $LOGFILE 2>&1
