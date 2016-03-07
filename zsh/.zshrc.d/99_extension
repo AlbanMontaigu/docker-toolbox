@@ -11,16 +11,17 @@
 # ------------------------------------------------------------
 
 # Global
-export DKTB_EXTENSION_DIR="/opt/doker-toolbox-extension"
+export DKTB_EXTENSION_DIR="/opt/docker-toolbox-extension"
 
 # Local
-LOGFILE="/var/log/doker-toolbox-extension.log"
+LOGFILE="/var/log/docker-toolbox-extension.log"
 CURRENT_DIR=$(pwd)
 
 
 # ------------------------------------------------------------
 # This is optional so if no env var, no extension
 # ------------------------------------------------------------
+echo "== Starting docker toolbox extension detection [$(date)]" > $LOGFILE
 if ([[ "$DKTB_EXTENSION_REPO" == "" ]] || [[ "$DKTB_EXTENSION_VERSION" == "" ]]); then
     echo "== No docker doker-toolbox-extension configured, skiping... [$(date)]" >> $LOGFILE 2>&1
     return 0
