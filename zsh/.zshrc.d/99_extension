@@ -36,9 +36,10 @@ fi
 # Loading extension
 # ------------------------------------------------------------
 echo "== Getting extension files... [$(date)]" >> $LOGFILE 2>&1
-sudo rm -rvf $DKTB_EXTENSION_DIR >> $LOGFILE 2>&1
-sudo git clone $DKTB_EXTENSION_REPO $DKTB_EXTENSION_DIR >> $LOGFILE 2>&1
+rm -rvf $DKTB_EXTENSION_DIR >> $LOGFILE 2>&1
+mkdir -p $DKTB_EXTENSION_DIR >> $LOGFILE 2>&1
+git clone $DKTB_EXTENSION_REPO $DKTB_EXTENSION_DIR >> $LOGFILE 2>&1
 cd $DKTB_EXTENSION_DIR
-sudo git checkout $DKTB_EXTENSION_VERSION >> $LOGFILE 2>&1
-sudo chmod -R 777 ${DKTB_EXTENSION_DIR} >> $LOGFILE 2>&1
+git checkout $DKTB_EXTENSION_VERSION >> $LOGFILE 2>&1
+chmod -R 777 ${DKTB_EXTENSION_DIR} >> $LOGFILE 2>&1
 cd $CURRENT_DIR
