@@ -24,7 +24,8 @@ WORKDIR /root
 
 # Environment configuration
 ENV DOCKER_VERSION="1.10.2" \
-    DOCKER_COMPOSE_VERSION="1.6.2"
+    DOCKER_COMPOSE_VERSION="1.6.2" \
+    DKTB_EXTENSION_DIR="/opt/docker-toolbox-extension"
 
 # System preparation and setup
 RUN apk add --update zsh curl git perl openssh-client py-pip py-yaml \
@@ -48,6 +49,9 @@ RUN apk add --update zsh curl git perl openssh-client py-pip py-yaml \
 # Zsh configuration file
 ADD ./zsh/.zshrc /root/
 ADD ./zsh/.zshrc.d/* /root/.zshrc.d/
+
+# Volumes definitions (usefull for volumes from for example)
+VOLUME ["/vagrant/", "/opt/docker-toolbox-extension"]
 
 # Docker entrypoint is zsh
 entrypoint ["/bin/zsh"]

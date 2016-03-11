@@ -10,9 +10,6 @@
 # Configuration
 # ------------------------------------------------------------
 
-# Global
-export DKTB_EXTENSION_DIR="/opt/docker-toolbox-extension"
-
 # Local
 LOGFILE="/var/log/docker-toolbox-extension.log"
 CURRENT_DIR=$(pwd)
