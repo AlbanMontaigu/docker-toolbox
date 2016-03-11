@@ -13,6 +13,8 @@ dk_host(){
         dk_host_help
     elif [[ "$1" == "" ]]; then
         echo "DOCKER_HOST_ID=$(dk_host_id)"
+    elif [[ "$1" == "--id" ]]; then
+        echo "$(dk_host_id)"
     else
         dk_host_change "$1"
     fi
