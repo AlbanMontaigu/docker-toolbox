@@ -5,13 +5,18 @@ My toobox docker image based on [alpine](https://hub.docker.com/_/alpine/) image
 ## Usage
 
 ```bash
-$ docker run -ti --rm \
-             -v "$(pwd)":/workspace \
-             -v /var/run/docker.sock:/var/run/docker.sock \
-             -h docker-toolbox \
-             -e COMPOSE_PROJECT_NAME="app" \
-             amontaigu/docker-toolbox
+$ docker run -it --rm  \
+                -v /var/run/docker.sock:/var/run/docker.sock \
+                -v /vagrant:/vagrant \
+                -w="/vagrant" \
+                -e COMPOSE_PROJECT_NAME="app" \
+                -e DKTB_EXTENSION_REPO="https://github.com/AlbanMontaigu/docker-toolbox-extension" \
+                -e DKTB_EXTENSION_VERSION="1.10.3" \
+                --name docker-toolbox \
+                amontaigu/docker-toolbox:1.10.3
 ```
+
+**Note:** ```DKTB_EXTENSION_REPO``` and ```DKTB_EXTENSION_VERSION``` are optional. Remove them if you want to keep base docker-toolbox. You can customize this extension system by forking [docker-toolbox-extension](https://github.com/AlbanMontaigu/docker-toolbox-extension) and change it according to your needs.
 
 ## Key softwares available in your box
 
