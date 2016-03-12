@@ -1,4 +1,9 @@
 
+## 1.10.3 (2016-03-12)
+- Extension system with [docker-toolbox-extension][https://github.com/AlbanMontaigu/docker-toolbox-extension)
+- Early IaaS management now available in [docker-toolbox-extension][https://github.com/AlbanMontaigu/docker-toolbox-extension)
+- ```dk host --id``` added
+
 ## 1.10.2 (2016-03-05)
 - Update to docker 1.10.2
 - Update to compose 1.6.2
