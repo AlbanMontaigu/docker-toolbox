@@ -3,6 +3,7 @@
 - Extension system with [docker-toolbox-extension][https://github.com/AlbanMontaigu/docker-toolbox-extension)
 - Early IaaS management now available in [docker-toolbox-extension][https://github.com/AlbanMontaigu/docker-toolbox-extension)
 - ```dk host --id``` added
+- ```VOLUME ["/vagrant/", "/opt/docker-toolbox-extension"]``` added to ease file sharing with ```---volumes-from```
 
 ## 1.10.2 (2016-03-05)
 - Update to docker 1.10.2
