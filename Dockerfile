@@ -35,7 +35,7 @@ RUN apk add --update zsh curl git perl openssh-client py-pip py-yaml \
     && curl -fSL "https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz" -o docker.tgz
     
 RUN ls -lisa \
-    && tar -xvf docker.tgz \
+    && tar xvzf docker.tgz \
     && mv -fv docker/docker /usr/local/bin/docker \
     && chmod +x /usr/local/bin/docker \
     && rm -rvf docker* \
