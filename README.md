@@ -11,9 +11,9 @@ $ docker run -it --rm  \
                 -w="/vagrant" \
                 -e COMPOSE_PROJECT_NAME="app" \
                 -e DKTB_EXTENSION_REPO="https://github.com/AlbanMontaigu/docker-toolbox-extension" \
-                -e DKTB_EXTENSION_VERSION="1.11.0" \
+                -e DKTB_EXTENSION_VERSION="1.11.2" \
                 --name docker-toolbox \
-                amontaigu/docker-toolbox:1.11.0
+                amontaigu/docker-toolbox:1.11.2
 ```
 
 **Note:** ```DKTB_EXTENSION_REPO``` and ```DKTB_EXTENSION_VERSION``` are optional. Remove them if you want to keep base docker-toolbox. You can customize this extension system by forking [docker-toolbox-extension](https://github.com/AlbanMontaigu/docker-toolbox-extension) and change it according to your needs.
