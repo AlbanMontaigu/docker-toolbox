@@ -1,4 +1,7 @@
 
+## 1.11.2 (2016-06-04)
+- Update to docker 1.11.2
+
 ## 1.11.0 (2016-04-14)
 - Update to docker 1.11.0
 - Update to compose 1.7.0
