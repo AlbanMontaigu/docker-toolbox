@@ -3,6 +3,7 @@
 - Update to docker 1.11.2
 - Update to compose 1.7.1
 - Update to alpine 3.4
+- Update circle-ci docker to 1.10.0
 
 ## 1.11.0 (2016-04-14)
 - Update to docker 1.11.0
