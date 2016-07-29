@@ -1,8 +1,8 @@
 .PHONY: build tests all
 
 DOCKER_IMAGE_NAME=amontaigu/docker-toolbox
-DOCKER_VERSION="1.11.2"
-DOCKER_COMPOSE_VERSION="1.7.1"
+DOCKER_VERSION="1.12.0"
+DOCKER_COMPOSE_VERSION="1.8.0"
 
 all: build test
 
