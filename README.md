@@ -11,9 +11,9 @@ $ docker run -it --rm  \
                 -w="/vagrant" \
                 -e COMPOSE_PROJECT_NAME="app" \
                 -e DKTB_EXTENSION_REPO="https://github.com/AlbanMontaigu/docker-toolbox-extension" \
-                -e DKTB_EXTENSION_VERSION="1.11.2" \
+                -e DKTB_EXTENSION_VERSION="1.12.1" \
                 --name docker-toolbox \
-                amontaigu/docker-toolbox:1.11.2
+                amontaigu/docker-toolbox:1.12.1
 ```
 
 **Note:** ```DKTB_EXTENSION_REPO``` and ```DKTB_EXTENSION_VERSION``` are optional. Remove them if you want to keep base docker-toolbox. You can customize this extension system by forking [docker-toolbox-extension](https://github.com/AlbanMontaigu/docker-toolbox-extension) and change it according to your needs.
@@ -35,50 +35,13 @@ And more...
 
 ## Commands available in your box
 
-### Misc commands
+Each command has integrated help, just type the command to see detailed usage.
 
 - ```dk``` is a ```docker``` alias
 - ```dc``` is a ```docker-compose``` alias
 - ```test-port HOST PORT``` to validate quickly with nc if a certain port on a certain host is accessible
 
-### Main (custom) docker commands
-
-- ```dk ip [container-name-or-id]``` to know current ip of the specified container
-- ```dk killa``` stop all running containers
-- ```dk cleanc``` delete all stoped conainters
-- ```dk cleani```delete untagged images
-- ```dk clean``` do a ```dk-cleanc``` and a ```dk-cleani```
-- ```dk ps``` show all running containers
-- ```dk ps -a``` show all running and stoped containers
-- ```dk images``` show all donloads images
-- ```dk logsf [container-name-or-id]``` show containers logs in a tail way
-- ```dk shc [container-name-or-id]``` opens a terminal in the specified container
-- ```dk shi [image]``` opens a terminal in the specified container
-- ```dk ls [container-name-or-id]``` do a ls command in the specified container
-- ```dk cat [container-name-or-id] [file]``` do a cat command in the specified container for the specified file
-- ```dk vi [container-name-or-id] [file]``` do a vi command in the specified container for the specified file
-
-For all the **docker** commands please refer to the [official documentation](https://docs.docker.com/reference/commandline/cli/).
-
-### Main (custom) docker-compose commands
-
-**Here you are in the directory where you have a ```docker-compose.yml``` file**. If you do not have this file, commands won't work.
-
-All these commands will process the services you described in your ```docker-compose.yml``` file.
-
-- ```dc upd``` create start all your services in a daemon mode
-- ```dc init``` if requested stop and delete old containers en recreate then start them. **You should use this command the first time you want to start your sercices or when you want to go from scratch**
-- ```dc reset``` same as ```dc init``` but without a pull so will be quicker than init
-- ```dc start``` start all your containers *(if they have been created before !!)*
-- ```dc stop ``` stop all your containres *(if they are started before)*
-- ```dc restart ``` restart all your containres *(if they are started before)*
-- ```dc start [container-compose-yml-name]``` start a specific container
-- ```dc stop [container-compose-yml-name]``` stop a specific container **Do not stop all the containers if you work only with one !**
-- ```dc restart [container-compose-yml-name]``` restart a specific container **Do not stop all the containers if you work only with one !**
-- ```dc prefix``` show current compose project name *(will be used as a prefix for containers names)*. Default is ```app``` and will produce containers names like ```app_myname_1```
-- ```dc prefix [newprefix]``` change the project name for compose
-
-For all the **docker-compose** commands please refer to the [official documentation](https://docs.docker.com/compose/reference/).
+Don't hesitate to complete your knowledge by learning docker and compose official cli documentation.
 
 ## Sources
 
