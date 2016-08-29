@@ -115,6 +115,7 @@ dc_help(){
 # Docker compose command plus new features for it
 # ------------------------------------------------------------
 dc(){
+    echo "[dc@$(dk_host_id)]\c"
     case "$1" in
         upd) dc_upd
             ;;
