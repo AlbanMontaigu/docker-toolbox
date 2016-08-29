@@ -351,6 +351,7 @@ dk(){
         dk_help "$1"
         return 0
     fi
+    echo "[dk@$(dk_host_id)]\c"
     case "$1" in
         ip) dk_ip "$2"
             ;;
