@@ -1,6 +1,7 @@
 
 
 ## 1.12.1d (2016-08-31)
+- BUGFIX: dk host info removed from dc and dk commands *(pollution for other commands using that)*
 - Better and shorter prompt information
 - BUGFIX: docker host definition is now shown in the prompt and do not more pollute commands
 
