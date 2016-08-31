@@ -1,7 +1,7 @@
 
 
 ## 1.12.1d (2016-08-31)
-- Better ans shorter prompt information
+- Better and shorter prompt information
 - BUGFIX: docker host definition is now shown in the prompt and do not more pollute commands
 
 ## 1.12.1c (2016-08-29)
