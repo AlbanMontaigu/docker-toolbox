@@ -35,7 +35,7 @@ setopt PROMPT_SUBST     # allow funky stuff in prompt
 if [ -z ${DOCKER_HOST_ID+x} ]; then
     DOCKER_HOST_ID="local"
 fi
-prompt="%{$fg[blue]%}docker-toolbox%{$reset_color%}@%{$fg[yellow]%}${DOCKER_HOST_ID}%{$reset_color%} %B%~%b "
+prompt="%{$fg[blue]%}docker-toolbox%{$reset_color%}@%{$fg[yellow]%}\${DOCKER_HOST_ID}%{$reset_color%} %B%~%b "
 RPROMPT='${vim_mode} ${vcs_info_msg_0_}'
 
 ##
