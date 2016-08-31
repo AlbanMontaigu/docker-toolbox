@@ -29,11 +29,13 @@ precmd() {  # run before each prompt
 # Prompt
 ##
 setopt PROMPT_SUBST     # allow funky stuff in prompt
-color="blue"
-if [ "$USER" = "root" ]; then
-    color="red"         # root is red, user is blue
-fi;
-prompt="%{$fg[$color]%}%n%{$reset_color%}@%U%{$fg[yellow]%}%m%{$reset_color%}%u %T %B%~%b "
+# At this stage docker host id it not set by the additional commands
+# But don't want to load them before zsh config because in case of failure il in extensions il
+# will break whole zsh config
+if [ -z ${DOCKER_HOST_ID+x} ]; then
+    DOCKER_HOST_ID="local"
+fi
+prompt="%{$fg[blue]%}docker-toolbox%{$reset_color%}@%{$fg[yellow]%}${DOCKER_HOST_ID}%{$reset_color%} %B%~%b "
 RPROMPT='${vim_mode} ${vcs_info_msg_0_}'
 
 ##

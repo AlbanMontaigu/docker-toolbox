@@ -1,5 +1,9 @@
 
 
+## 1.12.1d (2016-08-31)
+- Better ans shorter prompt information
+- BUGFIX: docker host definition is now shown in the prompt and do not more pollute commands
+
 ## 1.12.1c (2016-08-29)
 - Additional space added in shell info for ```dk``` command
 - Additional space added in shell info for ```dc``` command
