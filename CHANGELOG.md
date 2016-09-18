@@ -1,6 +1,7 @@
 
 ## 1.12.1f (2016-09-19)
 - UPDATE: update to version 1.12.1f to be consistent with related projects
+- UPDATE: now shell scripts have sh extension for better edition
 
 ## 1.12.1e (2016-09-01)
 - Prompt color changed
