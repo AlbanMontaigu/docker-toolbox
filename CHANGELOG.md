@@ -1,4 +1,7 @@
 
+## 1.12.1g (2016-09-27)
+- UPDATE: update to compose 1.8.1
+
 ## 1.12.1f (2016-09-19)
 - UPDATE: update to version 1.12.1f to be consistent with related projects
 - UPDATE: now shell scripts have sh extension for better edition
