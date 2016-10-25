@@ -1,4 +1,8 @@
 
+## 1.12.2 (2016-10-25)
+- UPDATE: update to docker 1.12.2
+
+
 ## 1.12.1g (2016-09-27)
 - UPDATE: update to compose 1.8.1
 
