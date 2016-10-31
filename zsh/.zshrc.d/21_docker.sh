@@ -157,11 +157,26 @@ dk_cleani_help(){
 
 
 # ------------------------------------------------------------
+# Delete all orphaned volumes
+# ------------------------------------------------------------
+dk_cleanv(){
+    docker volume ls -qf dangling=true | xargs -r docker volume rm
+}
+
+dk_cleanv_help(){
+    echo "Usage: dk cleanv"
+    echo ""
+    echo "Delete all dangling volumes."
+}
+
+
+# ------------------------------------------------------------
 # Delete all stopped containers and untagged images
 # ------------------------------------------------------------
 dk_clean(){
     dk_cleanc || true 
     dk_cleani
+    dk_cleanv
 }
 
 dk_clean_help(){
@@ -293,6 +308,7 @@ dk_custom_usage(){
     echo "    killa     Kill all running containers"
     echo "    cleanc    Delete all stopped containers"
     echo "    cleani    Delete all untagged images"
+    echo "    cleanv    Delete all dangling volumes"
     echo "    clean     Delete all stopped containers and untagged images"
     echo "    shc       Get a shell inside a container"
     echo "    shi       Get a shell in a container started from the specified image"
@@ -316,6 +332,8 @@ dk_help(){
         cleanc) dk_cleanc_help
             ;;
         cleani) dk_cleani_help
+            ;;
+        cleanv) dk_cleanv_help
             ;;
         clean) dk_clean_help
             ;;
@@ -359,6 +377,8 @@ dk(){
         cleanc) dk_cleanc
             ;;
         cleani) dk_cleani
+            ;;
+        cleanv) dk_cleanv
             ;;
         clean) dk_clean
             ;;

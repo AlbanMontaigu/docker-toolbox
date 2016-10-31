@@ -1,4 +1,7 @@
 
+## 1.12.3 (2016-10-31)
+- FEATURE: added ```dk cleanv``` command to clean dangling volume (```dk clean``` will include this one too)
+
 ## 1.12.2 (2016-10-25)
 - UPDATE: update to docker 1.12.2
 
