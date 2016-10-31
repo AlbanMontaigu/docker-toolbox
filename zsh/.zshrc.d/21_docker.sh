@@ -160,6 +160,8 @@ dk_cleani_help(){
 # Delete all orphaned volumes
 # ------------------------------------------------------------
 dk_cleanv(){
+    # since sx may broke the pipe
+    echo "[CMD] docker volume ls -qf dangling=true | xargs -r docker volume rm"
     docker volume ls -qf dangling=true | xargs -r docker volume rm
 }
 
@@ -190,8 +192,8 @@ dk_clean_help(){
 # Specific garbage collecting with spotify/docker-gc
 # ------------------------------------------------------------
 dk_gc(){
-    docker pull spotify/docker-gc
-    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock spotify/docker-gc
+    sx docker pull spotify/docker-gc
+    sx docker run --rm -v /var/run/docker.sock:/var/run/docker.sock spotify/docker-gc
 }
 
 dk_gc_help(){
