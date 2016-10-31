@@ -1,6 +1,7 @@
 
 ## 1.12.3 (2016-10-31)
 - UPDATE: bump to docker 1.12.3
+- FEATURE: added ```dk gc``` command for docker garbage collect with [spotify/docker-gc](https://github.com/spotify/docker-gc)
 - FEATURE: added ```dk cleanv``` command to clean dangling volume (```dk clean``` will include this one too)
 
 ## 1.12.2 (2016-10-25)

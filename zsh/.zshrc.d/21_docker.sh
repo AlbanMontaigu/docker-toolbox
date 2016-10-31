@@ -187,6 +187,21 @@ dk_clean_help(){
 
 
 # ------------------------------------------------------------
+# Specific garbage collecting with spotify/docker-gc
+# ------------------------------------------------------------
+dk_gc(){
+    docker pull spotify/docker-gc
+    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock spotify/docker-gc
+}
+
+dk_gc_help(){
+    echo "Usage: dk gc"
+    echo ""
+    echo "Specific garbage collecting with spotify/docker-gc."
+}
+
+
+# ------------------------------------------------------------
 # Get a shell inside a container
 # ------------------------------------------------------------
 dk_shc() {
@@ -310,6 +325,7 @@ dk_custom_usage(){
     echo "    cleani    Delete all untagged images"
     echo "    cleanv    Delete all dangling volumes"
     echo "    clean     Delete all stopped containers and untagged images"
+    echo "    gc        Specific garbage collecting with spotify/docker-gc"
     echo "    shc       Get a shell inside a container"
     echo "    shi       Get a shell in a container started from the specified image"
     echo "    ls        See files tree in a container"
@@ -336,6 +352,8 @@ dk_help(){
         cleanv) dk_cleanv_help
             ;;
         clean) dk_clean_help
+            ;;
+        gc) dk_gc_help
             ;;
         shc) dk_shc_help
             ;;
@@ -381,6 +399,8 @@ dk(){
         cleanv) dk_cleanv
             ;;
         clean) dk_clean
+            ;;
+        gc) dk_gc
             ;;
         shc) dk_shc "$2"
             ;;
