@@ -1,4 +1,7 @@
 
+## 1.12.3 (2016-11-21)
+- UPDATE: bump to docker-compose 1.9.0
+
 ## 1.12.3 (2016-10-31)
 - UPDATE: bump to docker 1.12.3
 - FEATURE: added ```dk gc``` command for docker garbage collect with [spotify/docker-gc](https://github.com/spotify/docker-gc)
@@ -6,7 +9,6 @@
 
 ## 1.12.2 (2016-10-25)
 - UPDATE: update to docker 1.12.2
-
 
 ## 1.12.1g (2016-09-27)
 - UPDATE: update to compose 1.8.1
