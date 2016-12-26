@@ -1,4 +1,7 @@
 
+## 1.12.5 (2016-12-26)
+- UPDATE: update to docker 1.12.5
+
 ## 1.12.3 (2016-11-21)
 - UPDATE: bump to docker-compose 1.9.0
 
