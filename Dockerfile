@@ -12,8 +12,8 @@
 # ==================================================================================================
 
 # Base image
-# 3.4 last version as per 2016-06-04
-FROM alpine:3.4
+# 3.5 last version as per 2017-01-29
+FROM alpine:3.5
 
 # Maintainer
 MAINTAINER Alban Montaigu <https://github.com/AlbanMontaigu>

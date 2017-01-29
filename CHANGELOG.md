@@ -2,6 +2,7 @@
 ## 1.13.0 (2017-01-29)
 - UPDATE: update to docker 1.13.0
 - UPDATE: update to docker-compose 1.10.0
+- UPDATE: update to alpine 3.5
 
 ## 1.12.5 (2016-12-26)
 - UPDATE: update to docker 1.12.5
