@@ -28,7 +28,7 @@ ENV DOCKER_VERSION="1.13.0" \
     DKTB_EXTENSION_DIR="/opt/docker-toolbox-extension"
 
 # System preparation and setup
-RUN apk add --update zsh curl git perl openssh-client py-pip py-yaml \
+RUN apk add --update zsh zsh-vcs curl git perl openssh-client py-pip py-yaml \
                         make m4 mercurial vim docker-vim nano \
 
 # Install docker bin for client commands (will be connected to docker host daemon)
