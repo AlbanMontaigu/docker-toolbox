@@ -1,4 +1,7 @@
 
+## 1.13.1 (2017-02-27)
+- UPDATE: update to docker-compose 1.11.2
+
 ## 1.13.1 (2017-02-11)
 - UPDATE: update to docker 1.13.1
 - UPDATE: update to docker-compose 1.11.1
