@@ -1,6 +1,7 @@
 
-## 17.03.0-ce (2017-03-10)
+## 17.03.0-ce (2017-03-13)
 - UPDATE: update to docker 17.03.0-ce
+- FEATURE: enable version check message @startup (related to #2)
 
 ## 1.13.1 (2017-02-27)
 - UPDATE: update to docker-compose 1.11.2
