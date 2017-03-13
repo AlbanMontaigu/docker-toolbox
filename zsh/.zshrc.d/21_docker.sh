@@ -312,6 +312,20 @@ dk_logsf_help(){
 
 
 # ------------------------------------------------------------
+# Update all available images
+# ------------------------------------------------------------
+dk_ipull(){
+    docker images | grep -v REPOSITORY | grep -Ev  '<none>' |awk '{print $1":"$2}' | xargs -n1 docker pull
+}
+
+dk_ipull_help(){
+    echo "Usage: dk ipull"
+    echo ""
+    echo "Update all available images."
+}
+
+
+# ------------------------------------------------------------
 # Show docker usage + information about custom commands
 # ------------------------------------------------------------
 dk_custom_usage(){
@@ -322,6 +336,7 @@ dk_custom_usage(){
     echo
     echo "Custom dk commands:"
     echo "    ip        Show ip of a docker container"
+    echo "    ipull        Update all available images"
     echo "    killa     Kill all running containers"
     echo "    cleanc    Delete all stopped containers"
     echo "    cleani    Delete all untagged images"
@@ -344,6 +359,8 @@ dk_custom_usage(){
 dk_help(){
     case "$1" in
         ip) dk_ip_help
+            ;;
+        ipull) dk_ipull_help
             ;;
         killa) dk_killa_help
             ;;
@@ -391,6 +408,8 @@ dk(){
     fi
     case "$1" in
         ip) dk_ip "$2"
+            ;;
+        ipull) dk_ipull
             ;;
         killa) dk_killa
             ;;
