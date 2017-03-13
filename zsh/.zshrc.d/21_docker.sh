@@ -336,7 +336,7 @@ dk_custom_usage(){
     echo
     echo "Custom dk commands:"
     echo "    ip        Show ip of a docker container"
-    echo "    ipull        Update all available images"
+    echo "    ipull     Update all available images"
     echo "    killa     Kill all running containers"
     echo "    cleanc    Delete all stopped containers"
     echo "    cleani    Delete all untagged images"
