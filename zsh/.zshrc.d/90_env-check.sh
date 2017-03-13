@@ -18,7 +18,7 @@ version_check(){
     DKTB_LATEST_VERSION=$(curl -m15 -skL https://raw.githubusercontent.com/AlbanMontaigu/docker-toolbox/latest/VERSION)
 
     # Error management
-    if [ $? -eq 0 ]; then
+    if [ $? != 0 ]; then
         return 1
     fi
 
