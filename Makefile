@@ -2,7 +2,7 @@
 
 DOCKER_IMAGE_NAME=amontaigu/docker-toolbox
 DOCKER_VERSION="17.03.0-ce"
-DOCKER_COMPOSE_VERSION="1.11.2"
+DOCKER_COMPOSE_VERSION="1.12.0"
 
 all: build test
 
