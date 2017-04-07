@@ -1,4 +1,7 @@
 
+## 17.04.0-ce (2017-04-07)
+- UPDATE: update to docker 17.04.0-ce
+
 ## 17.03.1-ce (2017-04-06)
 - UPDATE: update to docker 17.03.1-ce
 
