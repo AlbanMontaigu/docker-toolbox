@@ -32,7 +32,7 @@ RUN apk add --update zsh zsh-vcs curl git perl openssh-client py-pip py-yaml \
                         make m4 mercurial vim docker-vim nano \
 
 # Install docker bin for client commands (will be connected to docker host daemon)
-    && curl -fSL "https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz" -o docker.tgz \
+    && curl -fSL "https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz" -o docker.tgz \
     && tar xvzf docker.tgz \
     && mv -fv docker/docker /usr/local/bin/docker \
     && chmod +x /usr/local/bin/docker \

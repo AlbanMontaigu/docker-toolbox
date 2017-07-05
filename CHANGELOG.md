@@ -4,6 +4,7 @@
 - UPDATE: update to docker-compose 1.14.0
 - UPDATE: update to alpine 3.6
 - UPDATE: env version check time before lunch reduced to 2 sec
+- UPDATE: now using new docker binary download URL
 
 ## 17.05.0-ce (2017-05-07)
 - UPDATE: update to docker 17.05.0-ce
