@@ -1,6 +1,7 @@
 
 ## 17.06.0-ce (2017-07-05)
 - UPDATE: update to docker 17.06.0-ce
+- UPDATE: update to docker-compose 1.14.0
 
 ## 17.05.0-ce (2017-05-07)
 - UPDATE: update to docker 17.05.0-ce
