@@ -12,7 +12,7 @@
 # ==================================================================================================
 
 # Base image
-# 3.6 last version as per 2017-07-05
+# 3.6 last version as per 2017-08-21
 FROM alpine:3.6
 
 # Maintainer
@@ -24,7 +24,7 @@ WORKDIR /root
 
 # Environment configuration
 ENV DOCKER_VERSION="17.06.1-ce" \
-    DOCKER_COMPOSE_VERSION="1.14.0" \
+    DOCKER_COMPOSE_VERSION="1.15.0" \
     DKTB_EXTENSION_DIR="/opt/docker-toolbox-extension"
 
 # System preparation and setup
