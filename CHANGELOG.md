@@ -3,6 +3,7 @@
 - UPDATE: update to docker 17.06.1-ce
 - UPDATE: update to docker-compose 1.15.0
 - UPDATE: move to CircleCI 2.0
+- UDPATE: old Makefile removed
 
 ## 17.06.0-ce (2017-07-05)
 - UPDATE: update to docker 17.06.0-ce
