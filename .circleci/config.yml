@@ -73,8 +73,6 @@ jobs:
           command: |
               docker create -v /app --name app-tests alpine /bin/true
               docker cp tests app-tests:/app
-              # starting application container using this volume
-              docker run --volumes-from configs app-image:1.2.3
       - run:
           name: Run tests
           command: |
