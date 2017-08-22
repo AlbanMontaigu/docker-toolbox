@@ -119,25 +119,6 @@ dk_killa_help(){
 
 
 # ------------------------------------------------------------
-# Delete all stopped containers
-# ------------------------------------------------------------
-dk_cleanc(){
-    exited_containers="$(docker ps -a -q -f status=exited)"
-    if [[ "$exited_containers" == "" ]] ; then
-        echo "No exited container to clean"
-        return 0
-    fi
-    sx docker rm "$exited_containers"
-}
-
-dk_cleanc_help(){
-    echo "Usage: dk cleanc"
-    echo ""
-    echo "Delete all stopped containers."
-}
-
-
-# ------------------------------------------------------------
 # Delete all stopped containers and untagged images
 # ------------------------------------------------------------
 dk_clean(){
@@ -303,7 +284,6 @@ dk_custom_usage(){
     echo "    ip        Show ip of a docker container"
     echo "    ipull     Update all available images"
     echo "    killa     Kill all running containers"
-    echo "    cleanc    Delete all stopped containers"
     echo "    clean     Delete all stopped containers and untagged images"
     echo "    gc        Specific garbage collecting with spotify/docker-gc"
     echo "    shc       Get a shell inside a container"
@@ -326,8 +306,6 @@ dk_help(){
         ipull) dk_ipull_help
             ;;
         killa) dk_killa_help
-            ;;
-        cleanc) dk_cleanc_help
             ;;
         clean) dk_clean_help
             ;;
@@ -371,8 +349,6 @@ dk(){
         ipull) dk_ipull
             ;;
         killa) dk_killa
-            ;;
-        cleanc) dk_cleanc
             ;;
         clean) dk_clean
             ;;

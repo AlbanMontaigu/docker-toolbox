@@ -8,6 +8,7 @@
 - UPDATE: test files updated
 - UPDATE: `dk cleani` removed please use `docker image prune` instead
 - UPDATE: `dk cleanv` removed please use `docker volume prune` instead
+- UPDATE: `dk cleanc` removed please use `docker container prune` instead
 
 ## 17.06.0-ce (2017-07-05)
 - UPDATE: update to docker 17.06.0-ce
