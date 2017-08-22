@@ -119,22 +119,6 @@ dk_killa_help(){
 
 
 # ------------------------------------------------------------
-# Delete all stopped containers and untagged images
-# ------------------------------------------------------------
-dk_clean(){
-    dk_cleanc || true 
-    dk_cleani
-    dk_cleanv
-}
-
-dk_clean_help(){
-    echo "Usage: dk clean"
-    echo ""
-    echo "Delete all stopped containers and untagged images."
-}
-
-
-# ------------------------------------------------------------
 # Specific garbage collecting with spotify/docker-gc
 # ------------------------------------------------------------
 dk_gc(){
@@ -284,7 +268,6 @@ dk_custom_usage(){
     echo "    ip        Show ip of a docker container"
     echo "    ipull     Update all available images"
     echo "    killa     Kill all running containers"
-    echo "    clean     Delete all stopped containers and untagged images"
     echo "    gc        Specific garbage collecting with spotify/docker-gc"
     echo "    shc       Get a shell inside a container"
     echo "    shi       Get a shell in a container started from the specified image"
@@ -306,8 +289,6 @@ dk_help(){
         ipull) dk_ipull_help
             ;;
         killa) dk_killa_help
-            ;;
-        clean) dk_clean_help
             ;;
         gc) dk_gc_help
             ;;
@@ -349,8 +330,6 @@ dk(){
         ipull) dk_ipull
             ;;
         killa) dk_killa
-            ;;
-        clean) dk_clean
             ;;
         gc) dk_gc
             ;;
