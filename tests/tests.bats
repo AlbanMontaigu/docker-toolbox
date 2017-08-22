@@ -25,6 +25,7 @@ load tests_helper
 }
 
 @test "docker-compose build is ok" {
+    ls -lisa /app
     dk_devbox_cmd "cd tests/docker && docker-compose build"
 }
 

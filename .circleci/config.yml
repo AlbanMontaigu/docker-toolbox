@@ -71,6 +71,7 @@ jobs:
       - run:
           name: Run tests
           command: |
+            ls -lisa /app
             export DOCKER_VERSION="$(sed -nre 's/^.*DOCKER_VERSION="([^"]+)".*$/\1/p;' Dockerfile | head -1)"
             export DOCKER_COMPOSE_VERSION="$(sed -nre 's/^.*DOCKER_COMPOSE_VERSION="([^"]+)".*$/\1/p;' Dockerfile | head -1)"
             bats tests
