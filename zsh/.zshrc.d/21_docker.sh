@@ -138,25 +138,6 @@ dk_cleanc_help(){
 
 
 # ------------------------------------------------------------
-# Delete all untagged images
-# ------------------------------------------------------------
-dk_cleani(){
-    untagged_images="$(docker images -q -f dangling=true)"
-    if [[ "$untagged_images" == "" ]] ; then
-        echo "No untagged image to clean"
-        return 0
-    fi
-    sx docker rmi "$untagged_images"
-}
-
-dk_cleani_help(){
-    echo "Usage: dk cleani"
-    echo ""
-    echo "Delete all untagged images."
-}
-
-
-# ------------------------------------------------------------
 # Delete all orphaned volumes
 # ------------------------------------------------------------
 dk_cleanv(){
@@ -339,7 +320,6 @@ dk_custom_usage(){
     echo "    ipull     Update all available images"
     echo "    killa     Kill all running containers"
     echo "    cleanc    Delete all stopped containers"
-    echo "    cleani    Delete all untagged images"
     echo "    cleanv    Delete all dangling volumes"
     echo "    clean     Delete all stopped containers and untagged images"
     echo "    gc        Specific garbage collecting with spotify/docker-gc"
@@ -365,8 +345,6 @@ dk_help(){
         killa) dk_killa_help
             ;;
         cleanc) dk_cleanc_help
-            ;;
-        cleani) dk_cleani_help
             ;;
         cleanv) dk_cleanv_help
             ;;
@@ -414,8 +392,6 @@ dk(){
         killa) dk_killa
             ;;
         cleanc) dk_cleanc
-            ;;
-        cleani) dk_cleani
             ;;
         cleanv) dk_cleanv
             ;;
