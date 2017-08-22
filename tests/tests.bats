@@ -25,9 +25,9 @@ load tests_helper
 }
 
 @test "docker-compose build is ok" {
-    dk_devbox_cmd "cd tests/docker && docker-compose build"
+    dk_devbox_cmd "cd docker && docker-compose build"
 }
 
 @test "docker-compose up is ok" {
-    dk_devbox_cmd "cd tests/docker && docker-compose up"
+    dk_devbox_cmd "cd docker && docker-compose up"
 }
