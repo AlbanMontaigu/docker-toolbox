@@ -138,22 +138,6 @@ dk_cleanc_help(){
 
 
 # ------------------------------------------------------------
-# Delete all orphaned volumes
-# ------------------------------------------------------------
-dk_cleanv(){
-    # since sx may broke the pipe
-    echo "[CMD] docker volume ls -qf dangling=true | xargs -r docker volume rm"
-    docker volume ls -qf dangling=true | xargs -r docker volume rm
-}
-
-dk_cleanv_help(){
-    echo "Usage: dk cleanv"
-    echo ""
-    echo "Delete all dangling volumes."
-}
-
-
-# ------------------------------------------------------------
 # Delete all stopped containers and untagged images
 # ------------------------------------------------------------
 dk_clean(){
@@ -320,7 +304,6 @@ dk_custom_usage(){
     echo "    ipull     Update all available images"
     echo "    killa     Kill all running containers"
     echo "    cleanc    Delete all stopped containers"
-    echo "    cleanv    Delete all dangling volumes"
     echo "    clean     Delete all stopped containers and untagged images"
     echo "    gc        Specific garbage collecting with spotify/docker-gc"
     echo "    shc       Get a shell inside a container"
@@ -345,8 +328,6 @@ dk_help(){
         killa) dk_killa_help
             ;;
         cleanc) dk_cleanc_help
-            ;;
-        cleanv) dk_cleanv_help
             ;;
         clean) dk_clean_help
             ;;
@@ -392,8 +373,6 @@ dk(){
         killa) dk_killa
             ;;
         cleanc) dk_cleanc
-            ;;
-        cleanv) dk_cleanv
             ;;
         clean) dk_clean
             ;;
