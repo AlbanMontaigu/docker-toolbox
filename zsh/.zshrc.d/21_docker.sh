@@ -170,60 +170,6 @@ dk_shi_help(){
 
 
 # ------------------------------------------------------------
-# See files tree in a container
-# ------------------------------------------------------------
-dk_ls() {
-    if [ $# -eq 2 ]; then
-        sx docker exec -ti $1 /bin/ls -l $2
-    else
-        dk_ls_help
-    fi
-}
-
-dk_ls_help(){
-    echo "Usage: dk ls CONTAINER PATH"
-    echo ""
-    echo "Outputs directory content from inside a container."
-}
-
-
-# ------------------------------------------------------------
-# See files content inside a container
-# ------------------------------------------------------------
-dk_cat() {
-    if [ $# -eq 2 ]; then
-        sx docker exec -ti $1 /bin/cat $2
-    else
-        dk_cat_help
-    fi
-}
-
-dk_cat_help(){
-    echo "Usage: dk cat CONTAINER PATH"
-    echo ""
-    echo "Outputs file content from inside a container."
-}
-
-
-# ------------------------------------------------------------
-# Edit files content inside a container
-# ------------------------------------------------------------
-dk_vi() {
-    if [ $# -eq 2 ]; then
-        sx docker exec -ti $1 /bin/vi $2
-    else
-        dk_vi_help
-    fi
-}
-
-dk_vi_help(){
-    echo "Usage: dk vi CONTAINER PATH"
-    echo ""
-    echo "Edits file content from inside a container."
-}
-
-
-# ------------------------------------------------------------
 # Follow logs of a container
 # ------------------------------------------------------------
 dk_logsf(){
@@ -271,9 +217,6 @@ dk_custom_usage(){
     echo "    gc        Specific garbage collecting with spotify/docker-gc"
     echo "    shc       Get a shell inside a container"
     echo "    shi       Get a shell in a container started from the specified image"
-    echo "    ls        See files tree in a container"
-    echo "    cat       See files content inside a container"
-    echo "    vi        Edit files content inside a container"
     echo "    logsf     Follow logs of a container"
     echo "    host      Changes or shows where the docker client is connected"
 }
@@ -295,12 +238,6 @@ dk_help(){
         shc) dk_shc_help
             ;;
         shi) dk_shi_help
-            ;;
-        ls) dk_ls_help
-            ;;
-        cat) dk_cat_help
-            ;;
-        vi) dk_vi_help
             ;;
         logsf) dk_logsf_help
             ;;
@@ -336,12 +273,6 @@ dk(){
         shc) dk_shc "$2"
             ;;
         shi) dk_shi "$2"
-            ;;
-        ls) dk_ls "$2" "$3"
-            ;;
-        cat) dk_cat "$2" "$3"
-            ;;
-        vi) dk_vi "$2" "$3"
             ;;
         logsf) dk_logsf "$2"
             ;;

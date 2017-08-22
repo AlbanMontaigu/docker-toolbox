@@ -10,6 +10,7 @@
 - UPDATE: `dk cleanv` removed please use `docker volume prune` instead
 - UPDATE: `dk cleanc` removed please use `docker container prune` instead
 - UPDATE: `dk clean` removed please use `docker system prune` instead
+- UPDATE: `dk [ls|vi|cat]` removed since they are not convenient / used please use `docker [shi|shc]` and then your command instead
 
 ## 17.06.0-ce (2017-07-05)
 - UPDATE: update to docker 17.06.0-ce
