@@ -4,4 +4,4 @@
 # =====================================================
 
 # Custom env variables
-export DKTB_VERSION="17.06.0-ce"
+export DKTB_VERSION="17.06.1-ce"
