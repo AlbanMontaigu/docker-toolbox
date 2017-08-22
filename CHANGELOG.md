@@ -5,6 +5,7 @@
 - UPDATE: move to CircleCI 2.0
 - UPDATE: old Makefile removed
 - UPDATE: licence date update
+- UPDATE: test files updated
 
 ## 17.06.0-ce (2017-07-05)
 - UPDATE: update to docker 17.06.0-ce
