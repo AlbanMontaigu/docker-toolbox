@@ -69,6 +69,13 @@ jobs:
             apk add --no-cache \
               bats
       - run:
+          name: Creates dummy container which will hold a volume with tests
+          command: |
+              docker create -v /app --name app-tests alpine /bin/true
+              docker cp tests app-tests:/app
+              # starting application container using this volume
+              docker run --volumes-from configs app-image:1.2.3
+      - run:
           name: Run tests
           command: |
             export DOCKER_VERSION="$(sed -nre 's/^.*DOCKER_VERSION="([^"]+)".*$/\1/p;' Dockerfile | head -1)"

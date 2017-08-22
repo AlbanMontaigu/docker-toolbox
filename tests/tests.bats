@@ -25,8 +25,7 @@ load tests_helper
 }
 
 @test "docker-compose build is ok" {
-    ls -lisa /app
-    dk_devbox_cmd "ls -lisa . && ls -lisa / && pwd && ls -lisa /app && cd tests/docker && docker-compose build"
+    dk_devbox_cmd "cd tests/docker && docker-compose build"
 }
 
 @test "docker-compose up is ok" {

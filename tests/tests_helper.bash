@@ -15,8 +15,8 @@ dk_devbox_cmd() {
     if [ $# -eq 1 ]; then
         docker run --rm \
             -v /var/run/docker.sock:/docker.sock \
-            -v /app:/app \
-            -w="/app" \
+            --volumes-from app-tests \
+            -w="/app/tests" \
             -e DOCKER_HOST="unix:///docker.sock" \
             ${DOCKER_APP_IMAGE_NAME} -c "$1"
     else
