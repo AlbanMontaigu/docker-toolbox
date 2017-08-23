@@ -14,9 +14,6 @@
 # Base image
 FROM alpine:3.6
 
-# Maintainer
-MAINTAINER Alban Montaigu <https://github.com/AlbanMontaigu>
-
 # Root user
 USER root
 WORKDIR /root
