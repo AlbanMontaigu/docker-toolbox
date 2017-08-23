@@ -53,4 +53,4 @@ ADD ./zsh/.zshrc.d/* /root/.zshrc.d/
 VOLUME ["/vagrant/", "/opt/docker-toolbox-extension"]
 
 # Docker entrypoint is zsh
-entrypoint ["/bin/zsh"]
+ENTRYPOINT ["/bin/zsh"]
