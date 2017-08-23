@@ -1,6 +1,6 @@
 # docker-toolbox [![Circle CI](https://circleci.com/gh/AlbanMontaigu/docker-toolbox.svg?style=shield)](https://circleci.com/gh/AlbanMontaigu/docker-toolbox)
 
-My toobox docker image based on [alpine](https://hub.docker.com/_/alpine/) image.
+My toolbox docker image based on [alpine](https://hub.docker.com/_/alpine/) image.
 
 ## Usage
 
@@ -18,7 +18,7 @@ $ docker run -it --rm  \
 
 **Note:** ```DKTB_EXTENSION_REPO``` and ```DKTB_EXTENSION_VERSION``` are optional. Remove them if you want to keep base docker-toolbox. You can customize this extension system by forking [docker-toolbox-extension](https://github.com/AlbanMontaigu/docker-toolbox-extension) and change it according to your needs.
 
-## Key softwares available in your box
+## Key software available in your box
 
 - git
 - mercurial
