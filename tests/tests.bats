@@ -25,7 +25,7 @@ load tests_helper
 }
 
 # Test DKTB_VERSION
-@test "DKTB_VERSION env var is set to ${DOCKER_VERSION}" {
+@test "DKTB_VERSION env var is consistent with DOCKER_VERSION=${DOCKER_VERSION}" {
     result=$(dk_devbox_cmd "echo ${DKTB_VERSION}")
     [[ "$result" == "${DOCKER_VERSION}" ]]
 }
