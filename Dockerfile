@@ -3,7 +3,7 @@
 # DOCKER TOOLBOX
 #
 # A friendly light docker image to provide tools and configuration to
-# work in a confortable manner with docker
+# work in a comfortable manner with docker
 # 
 # @see https://pkgs.alpinelinux.org
 # @see http://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
