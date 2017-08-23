@@ -24,6 +24,12 @@ load tests_helper
     [[ "$result" == *"docker-compose version ${DOCKER_COMPOSE_VERSION}"* ]]
 }
 
+# Test DKTB_VERSION
+@test "DKTB_VERSION env var is set to ${DOCKER_VERSION}" {
+    result=$(dk_devbox_cmd "echo ${DKTB_VERSION}")
+    [[ "$result" == "${DOCKER_VERSION}" ]]
+}
+
 @test "docker-compose build is ok" {
     dk_devbox_cmd "cd docker && docker-compose build"
 }
