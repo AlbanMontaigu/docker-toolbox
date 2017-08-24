@@ -50,8 +50,8 @@ RUN apk add --update zsh zsh-vcs curl git perl openssh-client py-pip py-yaml \
 ADD ./zsh/.zshrc /root/
 ADD ./zsh/.zshrc.d/* /root/.zshrc.d/
 
-# Volumes definitions (usefull for volumes from for example)
-VOLUME ["/vagrant/", "/opt/docker-toolbox-extension"]
+# Volumes definitions (useful for volumes from for example)
+VOLUME ["/vagrant", "/opt/docker-toolbox-extension"]
 
 # Docker entrypoint is zsh
 ENTRYPOINT ["/bin/zsh"]
