@@ -25,8 +25,8 @@ ENV DOCKER_VERSION="17.06.1-ce" \
     DKTB_EXTENSION_DIR="/opt/docker-toolbox-extension"
 
 # System preparation and setup
-RUN apk add --update zsh zsh-vcs curl git perl openssh-client py-pip py-yaml \
-                        make m4 mercurial vim docker-vim nano \
+RUN apk --no-cache add zsh zsh-vcs curl git perl openssh-client py-pip py-yaml \
+                       make m4 mercurial vim docker-vim nano \
 
 # Install docker bin for client commands (will be connected to docker host daemon)
     && curl -fSL "https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz" -o docker.tgz \
