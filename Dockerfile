@@ -20,7 +20,7 @@ WORKDIR /root
 
 # Environment configuration
 ENV DOCKER_VERSION="17.07.0-ce" \
-    DOCKER_COMPOSE_VERSION="1.15.0" \
+    DOCKER_COMPOSE_VERSION="1.16.1" \
     DKTB_VERSION="17.07.0-ce" \
     DKTB_EXTENSION_DIR="/opt/docker-toolbox-extension"
 
