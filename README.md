@@ -33,6 +33,12 @@ $ docker run -it --rm  \
 
 And more...
 
+## Following docker stable versions
+
+This project aims to follow mainly docker stable releases. Meaning that each docker release, especially test ones may not be published here.
+
+For more information please check [docker stable releases](https://download.docker.com/linux/static/stable/x86_64/) and [time based release schedule](https://docs.docker.com/engine/installation/#time-based-release-schedule).
+
 ## Commands available in your box
 
 Each command has integrated help, just type the command to see detailed usage.
