@@ -19,7 +19,7 @@ jobs:
       - setup_remote_docker
       - restore_cache:
           keys:
-            - cache-{{ .Environment.CIRCLE_PROJECT_REPONAME }}
+            - cache-v2-{{ .Environment.CIRCLE_PROJECT_REPONAME }}
           paths:
             - /caches/docker_app_image.tar
       - run:
@@ -30,14 +30,14 @@ jobs:
       - run:
           name: Build docker image
           command: |
-            docker build --cache-from=$DOCKER_APP_IMAGE_NAME --tag $DOCKER_APP_IMAGE_NAME .
+            docker build --cache-v2-from=$DOCKER_APP_IMAGE_NAME --tag $DOCKER_APP_IMAGE_NAME .
       - run:
           name: Save docker image layer cache
           command: |
             mkdir -p /caches
             docker save -o /caches/docker_app_image.tar $DOCKER_APP_IMAGE_NAME
       - save_cache:
-          key: cache-{{ .Environment.CIRCLE_PROJECT_REPONAME }}-{{ epoch }}
+          key: cache-v2-{{ .Environment.CIRCLE_PROJECT_REPONAME }}-{{ epoch }}
           paths:
             - /caches/docker_app_image.tar
 
@@ -55,7 +55,7 @@ jobs:
       - setup_remote_docker
       - restore_cache:
           keys:
-            - cache-{{ .Environment.CIRCLE_PROJECT_REPONAME }}
+            - cache-v2-{{ .Environment.CIRCLE_PROJECT_REPONAME }}
           paths:
             - /caches/docker_app_image.tar
       - run:
@@ -94,7 +94,7 @@ jobs:
       - setup_remote_docker
       - restore_cache:
           keys:
-            - cache-{{ .Environment.CIRCLE_PROJECT_REPONAME }}
+            - cache-v2-{{ .Environment.CIRCLE_PROJECT_REPONAME }}
           paths:
             - /caches/docker_app_image.tar
       - run:
