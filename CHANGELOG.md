@@ -1,4 +1,7 @@
 
+## 17.06.2-ce (2017-09-15)
+- FEATURE: now each `dk` command may have tag to specify host profile like `dk @myprofile ps` instead of dk host change`
+
 ## 17.06.2-ce (2017-09-06)
 - UPDATE: update to docker 17.06.2-ce
 - UPDATE: update to docker-compose 1.16.1

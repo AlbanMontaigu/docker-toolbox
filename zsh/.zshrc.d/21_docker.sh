@@ -257,10 +257,28 @@ dk_help(){
 # Docker command plus new features for it
 # ------------------------------------------------------------
 dk(){
+
+    # Check if help is requested
     if [[ "${@: -1}" == "--help" ]] ; then
         dk_help "$1"
         return 0
     fi
+
+    # Current docker host
+    dk_host_rollback="_NA_"
+
+    # Read first argument to see if its host tag
+    if [[ "$1" =~ "[@]+" ]]; then
+
+        # Select new host with @ tag removed
+        dk_host_rollback=$(dk_host --id)
+        dk_host_change "${1:1}"
+
+        # Shift arguments list since the tag arg will be consumed
+        shift
+    fi
+
+    # Select with command to execute
     case "$1" in
         ip) dk_ip "$2"
             ;;
@@ -283,4 +301,9 @@ dk(){
         *) sx docker "$@"
             ;;
     esac
+
+    # Rollback to prev dk_host
+    if [[ "${dk_host_rollback}" != "_NA_" ]]; then
+        dk_host_change "${dk_host_rollback}"
+    fi
 }
