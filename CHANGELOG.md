@@ -1,5 +1,5 @@
 
-## 17.06.2-ce (2017-09-15)
+## 17.09.0-ce (2017-10-05)
 - FEATURE: now each `dk` command may have tag to specify host profile like `dk @myprofile ps` instead of dk host change`
 
 ## 17.06.2-ce (2017-09-06)
