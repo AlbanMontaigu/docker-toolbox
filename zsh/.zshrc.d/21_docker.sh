@@ -119,21 +119,6 @@ dk_killa_help(){
 
 
 # ------------------------------------------------------------
-# Specific garbage collecting with spotify/docker-gc
-# ------------------------------------------------------------
-dk_gc(){
-    sx docker pull spotify/docker-gc
-    sx docker run --rm -v /var/run/docker.sock:/var/run/docker.sock spotify/docker-gc
-}
-
-dk_gc_help(){
-    echo "Usage: dk gc"
-    echo ""
-    echo "Specific garbage collecting with spotify/docker-gc."
-}
-
-
-# ------------------------------------------------------------
 # Get a shell inside a container
 # ------------------------------------------------------------
 dk_shc() {
@@ -214,7 +199,6 @@ dk_custom_usage(){
     echo "    ip        Show ip of a docker container"
     echo "    ipull     Update all available images"
     echo "    killa     Kill all running containers"
-    echo "    gc        Specific garbage collecting with spotify/docker-gc"
     echo "    shc       Get a shell inside a container"
     echo "    shi       Get a shell in a container started from the specified image"
     echo "    logsf     Follow logs of a container"
@@ -232,8 +216,6 @@ dk_help(){
         ipull) dk_ipull_help
             ;;
         killa) dk_killa_help
-            ;;
-        gc) dk_gc_help
             ;;
         shc) dk_shc_help
             ;;
@@ -285,8 +267,6 @@ dk(){
         ipull) dk_ipull
             ;;
         killa) dk_killa
-            ;;
-        gc) dk_gc
             ;;
         shc) dk_shc "$2"
             ;;

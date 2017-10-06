@@ -3,6 +3,7 @@
 - UPDATE: update to docker 17.09.0-ce
 - UPDATE: update build to docker 17.09.0-ce
 - UPDATE: go back of maintainer info inside a LABEL now
+- UPDATE: `dk gc` command removed, see now docker `prune` related commands
 - FEATURE: now each `dk` command may have tag to specify host profile like `dk @myprofile ps` instead of dk host change`
 
 ## 17.06.2-ce (2017-09-06)
