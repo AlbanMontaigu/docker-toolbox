@@ -14,6 +14,9 @@
 # Base image
 FROM alpine:3.6
 
+# Maintainer
+LABEL maintainer="alban.montaigu@gmail.com"
+
 # Root user
 USER root
 WORKDIR /root

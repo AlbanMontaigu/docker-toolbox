@@ -2,6 +2,7 @@
 ## 17.09.0-ce (2017-10-06)
 - UPDATE: update to docker 17.09.0-ce
 - UPDATE: update build to docker 17.09.0-ce
+- UPDATE: go back of maintainer info inside a LABEL now
 - FEATURE: now each `dk` command may have tag to specify host profile like `dk @myprofile ps` instead of dk host change`
 
 ## 17.06.2-ce (2017-09-06)
