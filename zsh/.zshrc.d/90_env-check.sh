@@ -11,9 +11,6 @@
 # ------------------------------------------------------------
 version_check(){
 
-    # Need to wait to be sure that user see that on the shell
-    sleep 2
-
     # Get remote version (latest)
     DKTB_LATEST_VERSION=$(curl -m15 -skL https://raw.githubusercontent.com/AlbanMontaigu/docker-toolbox/latest/VERSION)
 
@@ -33,4 +30,4 @@ version_check(){
 }
 
 # Do the check but not blocking
-version_check&
+version_check

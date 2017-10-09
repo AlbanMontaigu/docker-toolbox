@@ -1,4 +1,7 @@
 
+## 17.09.0-ce (2017-10-09)
+- UPDATE: now `version_check` won't not occur in background anymore (avoid parasite message)
+
 ## 17.09.0-ce (2017-10-06)
 - UPDATE: update to docker 17.09.0-ce
 - UPDATE: update build to docker 17.09.0-ce
