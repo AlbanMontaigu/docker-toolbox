@@ -11,6 +11,16 @@
 # ------------------------------------------------------------
 version_check(){
 
+# To gain visibility for the message
+cat << EOF
+ __     __            _                ____ _               _
+ \ \   / /__ _ __ ___(_) ___  _ __    / ___| |__   ___  ___| | __
+  \ \ / / _ \ '__/ __| |/ _ \| '_ \  | |   | '_ \ / _ \/ __| |/ /
+   \ V /  __/ |  \__ \ | (_) | | | | | |___| | | |  __/ (__|   <
+    \_/ \___|_|  |___/_|\___/|_| |_|  \____|_| |_|\___|\___|_|\_\
+
+EOF
+
     # Get remote version (latest)
     DKTB_LATEST_VERSION=$(curl -m15 -skL https://raw.githubusercontent.com/AlbanMontaigu/docker-toolbox/latest/VERSION)
 
@@ -21,10 +31,10 @@ version_check(){
 
     # Display information
     if ([[ "${DKTB_LATEST_VERSION}" == "${DKTB_VERSION}" ]]); then
-        echo "[INFO] Congratulations ! You have the last version of dk tb (${DKTB_VERSION})"
+        echo -e "[INFO] Congratulations ! You have the last version of dk tb (${DKTB_VERSION})\n\n"
         return 0
     else
-        echo "[INFO] You may consider checking your dk tb version (yours=${DKTB_VERSION}, latest=${DKTB_LATEST_VERSION})"
+        echo -e "[INFO] You may consider checking your dk tb version (yours=${DKTB_VERSION}, latest=${DKTB_LATEST_VERSION})\n\n"
         return 2
     fi
 }
