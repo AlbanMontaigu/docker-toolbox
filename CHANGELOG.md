@@ -2,6 +2,7 @@
 ## 17.09.0-ce (2017-10-13)
 - FEATURE: `rc` command added for **rancher** command line client
 - FEATURE: `tf` command added for **terraform** command line client
+- FEATURE: `as` command added for **ansible** command line client with `as pb` as `ansible-playbook` shortcut
 
 ## 17.09.0-ce (2017-10-09)
 - UPDATE: now `version_check` won't not occur in background anymore (avoid parasite message)
