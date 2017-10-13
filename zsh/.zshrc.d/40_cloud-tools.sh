@@ -37,15 +37,26 @@ rc(){
 # ------------------------------------------------------------
 as(){
 
-    # Enable shortcut for ansible-playbook
+    # Check specific options
     ARGS=""
-    if [[ "${1}" == "pb" ]]; then
-        ARGS="ansible-playbook"
-        shift
-    fi
+    case "${1}" in
+        "--cs-cert-off")
+            export CS_CERT="NO_VERIF"
+            return 0
+            ;;
+        "--cs-cert-on")
+            export CS_CERT=""
+            return 0
+            ;;
+        "pb")
+            ARGS="ansible-playbook"
+            shift
+            ;;
+    esac
     
     # Main command
     DOCKER_HOST="$(dk_host_local)" docker run --rm \
+                    -e CS_CERT="${CS_CERT}" \
                     -v "$(pwd)":/data \
                     -w /data \
                     --volumes-from $(hostname) \
