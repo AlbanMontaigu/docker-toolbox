@@ -1,4 +1,7 @@
 
+## 17.12.0-ce (2018-02-12)
+- UPDATE: update to docker 17.12.0-ce (both build and docker toolbox)
+
 ## 17.09.0-ce (2017-10-13)
 - FEATURE: `rc` command added for **rancher** command line client
 - FEATURE: `tf` command added for **terraform** command line client
