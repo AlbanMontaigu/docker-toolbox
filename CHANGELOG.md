@@ -4,6 +4,7 @@
 - UPDATE: update to alpine 3.7
 - UPDATE: update cloud tools to last version (ansible, terraform, rancher cli)
 - UPDATE: update to compose 1.19.0
+- UPDATE: update to terraform 0.11.3
 
 ## 17.09.0-ce (2017-10-13)
 - FEATURE: `rc` command added for **rancher** command line client
