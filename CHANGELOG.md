@@ -1,4 +1,7 @@
 
+## 17.12.0-ce (2018-02-13)
+- BUGFIX: disable vcs_info since it may slow a lot the shell in some environments
+
 ## 17.12.0-ce (2018-02-12)
 - UPDATE: update to docker 17.12.0-ce (both build and docker toolbox)
 - UPDATE: update to alpine 3.7

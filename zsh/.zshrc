@@ -15,17 +15,6 @@ zsh-mime-setup  # run everything as if it's an executable
 select-word-style bash # ctrl+w on words
 
 ##
-# Vcs info
-##
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git hg
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats "%{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%} [%{$fg[red]%}%b%{$reset_color%}] %{$fg[yellow]%}%s%{$reset_color%}:%r"
-precmd() {  # run before each prompt
-  vcs_info
-}
-
-##
 # Prompt
 ##
 setopt PROMPT_SUBST     # allow funky stuff in prompt
@@ -36,7 +25,6 @@ if [ -z ${DOCKER_HOST_ID+x} ]; then
     DOCKER_HOST_ID="local"
 fi
 prompt="%{$fg[red]%}docker-toolbox%{$reset_color%}@%{$fg[yellow]%}\${DOCKER_HOST_ID}%{$reset_color%} %B%~%b "
-RPROMPT='${vim_mode} ${vcs_info_msg_0_}'
 
 ##
 # Key bindings
