@@ -1,4 +1,7 @@
 
+## 18.03.0-ce (2018-03-30)
+- UPDATE: bump to docker 18.03.0-ce (both build and docker toolbox)
+
 ## 17.12.0-ce (2018-02-13)
 - BUGFIX: disable vcs_info since it may slow a lot the shell in some environments
 
