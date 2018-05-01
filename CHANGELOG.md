@@ -1,6 +1,7 @@
 
 ## 18.03.1-ce (2018-05-01)
 - UPDATE: bump to docker 18.03.1-ce (both build and docker toolbox)
+- UPDATE: bump to compose 1.21.1
 
 ## 18.03.0-ce (2018-03-30)
 - UPDATE: bump to docker 18.03.0-ce (both build and docker toolbox)
