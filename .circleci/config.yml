@@ -11,7 +11,7 @@ jobs:
   build:
     working_directory: /app
     docker:
-      - image: docker:18.03.0-ce-git
+      - image: docker:18.03.1-ce-git
         environment:
           DOCKER_APP_IMAGE_NAME: amontaigu/docker-toolbox
     steps:
@@ -47,7 +47,7 @@ jobs:
   test:
     working_directory: /app
     docker:
-      - image: docker:18.03.0-ce-git
+      - image: docker:18.03.1-ce-git
         environment:
           DOCKER_APP_IMAGE_NAME: amontaigu/docker-toolbox
     steps:
@@ -86,7 +86,7 @@ jobs:
   deploy:
     working_directory: /app
     docker:
-      - image: docker:18.03.0-ce-git
+      - image: docker:18.03.1-ce-git
         environment:
           DOCKER_APP_IMAGE_NAME: amontaigu/docker-toolbox
     steps:
