@@ -2,6 +2,7 @@
 ## 18.06.0-ce (2018-08-05)
 - UPDATE: bump to docker 18.06.0-ce (both build and docker toolbox)
 - UPDATE: bump to compose 1.22.0
+- UPDATE: bump cloud tools to last version (ansible, terraform, rancher cli)
 
 ## 18.03.1-ce (2018-05-01)
 - UPDATE: bump to docker 18.03.1-ce (both build and docker toolbox)

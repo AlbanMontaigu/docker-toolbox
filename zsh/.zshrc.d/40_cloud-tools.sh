@@ -28,7 +28,7 @@ rc(){
                     -v "$(pwd)":/data \
                     -w /data \
                     --volumes-from $(hostname) \
-                    rancher/cli:v2.0.0 "$@"
+                    rancher/cli:v2.0.3 "$@"
 }
 
 
@@ -60,5 +60,5 @@ as(){
                     -v "$(pwd)":/data \
                     -w /data \
                     --volumes-from $(hostname) \
-                    amontaigu/ansible:2.5.2 $ARGS "$@"
+                    amontaigu/ansible:2.6.2 $ARGS "$@"
 }
