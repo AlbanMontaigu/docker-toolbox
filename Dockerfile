@@ -22,9 +22,9 @@ USER root
 WORKDIR /root
 
 # Environment configuration
-ENV DOCKER_VERSION="18.06.0-ce" \
+ENV DOCKER_VERSION="18.06.1-ce" \
     DOCKER_COMPOSE_VERSION="1.22.0" \
-    DKTB_VERSION="18.06.0-ce" \
+    DKTB_VERSION="18.06.1-ce" \
     DKTB_EXTENSION_DIR="/opt/docker-toolbox-extension"
 
 # System preparation and setup
