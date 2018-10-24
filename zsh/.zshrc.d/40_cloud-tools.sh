@@ -16,7 +16,7 @@ tf(){
     DOCKER_HOST="$(dk_host_local)" docker run --rm \
                     -v "$(pwd)":/data \
                     --volumes-from $(hostname) \
-                    amontaigu/terraform:0.11.7 "$@"
+                    amontaigu/terraform:0.11.10 "$@"
 }
 
 
@@ -28,7 +28,7 @@ rc(){
                     -v "$(pwd)":/data \
                     -w /data \
                     --volumes-from $(hostname) \
-                    rancher/cli:v2.0.3 "$@"
+                    rancher/cli:v2.0.4 "$@"
 }
 
 
@@ -60,5 +60,5 @@ as(){
                     -v "$(pwd)":/data \
                     -w /data \
                     --volumes-from $(hostname) \
-                    amontaigu/ansible:2.6.2 $ARGS "$@"
+                    amontaigu/ansible:2.7.0 $ARGS "$@"
 }
